@@ -31,10 +31,10 @@ header > nav > ul > li:hover{
 }
 
 
-header > nav > .right_section{
+header  .right_section{
     display: flex;
 }
-header > nav > .right_section > button{
+.right_section > button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,17 +47,17 @@ header > nav > .right_section > button{
     cursor: pointer;
     gap: 5px;
 }
-header > nav > .right_section > button > div{
+.right_section > button > div{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-header > nav > .right_section > button > div > img{
+.right_section > button > div > img{
     width: 22px;
 }
 
-header > nav > .right_section > .cart-btn > div > .totalQuantity{
+.right_section > .cart-btn > div > .totalQuantity{
     position: absolute;
     display: flex;
     justify-content: center;
@@ -79,4 +79,22 @@ header > nav > .right_section > .cart-btn > div > .totalQuantity{
     height: 25px;
     cursor: pointer;
     opacity: .7;
+}
+
+
+.sideNav{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    background-color: antiquewhite;
+}
+.showSideNav {
+    transform: translateX(0);
 }

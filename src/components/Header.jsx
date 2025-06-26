@@ -1,10 +1,11 @@
 
-import { useState } from 'react'
 import cartIcon from '../assets/cartIcon.png'
 import loginIcon from '../assets/loginIcon.png'
 import burgerMenu from '../assets/burgerMenu.ico'
-import { useEffect } from 'react'
-import { useRef } from 'react'
+import crossIcon from '../assets/crossIcon.png'
+
+import { useState, useEffect, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 
 export default function Header(){
 
@@ -21,17 +22,20 @@ export default function Header(){
         return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    function handleBurgerMenuClick(e){        
-        if(navRef.current.className === 'showMenu') navRef.current.className = ''
-        else navRef.current.className = 'showMenu'
+
+    function showSideNav(){
+        navRef.current.className = 'sideNav showSideNav'
+    }
+    function closeSideNav(){
+        navRef.current.className = 'sideNav'
     }
 
     const windowNav = (
         <> 
             <ul>
-                <li>Home</li>
-                <li>About</li>
-                <li>Products</li>
+                <li><NavLink to=''>Home</NavLink></li>
+                <li><NavLink to=''>About</NavLink></li>
+                <li><NavLink to=''>Products</NavLink></li>
             </ul>
 
             <section className="right_section">
@@ -48,7 +52,7 @@ export default function Header(){
                     <p>Login</p>
 
                     <div>
-                        <img src={loginIcon} alt="login icon" />
+                        <img src={loginIcon} alt="login icon"/>
                     </div>
                 </button>
             </section>
@@ -56,14 +60,23 @@ export default function Header(){
     )
 
     return(
-        <header>
-            <nav ref={navRef}>
-                <img className='logo' src="/logo.svg" alt="logo" />
-
-                {
-                    isMobile ? <img src={burgerMenu} alt='burger icon' className='burgerIcon' onClick={handleBurgerMenuClick}/>: windowNav 
-                }
+        <>
+            <header>
+                <nav>
+                    <img className='logo' src="/logo.svg" alt="logo" />
+                    {
+                        isMobile ? <img src={burgerMenu} className='burgerIcon' onClick={showSideNav}/> 
+                        : windowNav
+                    }
+                </nav>
+            </header>
+            
+            <nav className="sideNav" ref={navRef}>
+                <div>
+                    <img className='logo' src="/logo.svg" alt="logo" />
+                    <img src={crossIcon} alt="cross icon" onClick={closeSideNav}/>
+                </div>
             </nav>
-        </header>
+        </>
     )
 }
