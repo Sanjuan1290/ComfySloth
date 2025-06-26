@@ -72,7 +72,7 @@ return(
             </nav>
         </header>
         
-        <nav className={`mobileNav ${showNav ? 'showSideNav' : ''}`} ref={navRef}>
+        <nav className={`mobileNav ${isMobile && showNav ? 'showSideNav' : ''}`} ref={navRef}>
             <div>
                 <img className='logo' src="/logo.svg" alt="logo" />
                 <img src={crossIcon} alt="cross icon" onClick={closeSideNav} className='crossIcon'/>
