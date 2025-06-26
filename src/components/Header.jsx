@@ -9,74 +9,77 @@ import { NavLink } from 'react-router-dom'
 
 export default function Header(){
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 990)
-    const navRef = useRef()
+const [isMobile, setIsMobile] = useState(window.innerWidth <= 990)
+const [showNav, setShowNav] = useState(false)
+const navRef = useRef()
 
-    useEffect(()=>{
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 990)
-        }
-        
-        window.addEventListener('resize', handleResize)
-
-        return () => window.removeEventListener('resize', handleResize)
-    }, [])
-
-
-    function showSideNav(){
-        navRef.current.className = 'sideNav showSideNav'
+useEffect(()=>{
+    const handleResize = () => {
+        setIsMobile(window.innerWidth <= 990)
     }
-    function closeSideNav(){
-        navRef.current.className = 'sideNav'
-    }
+    
+    window.addEventListener('resize', handleResize)
 
-    const windowNav = (
-        <> 
-            <ul>
-                <li><NavLink to=''>Home</NavLink></li>
-                <li><NavLink to=''>About</NavLink></li>
-                <li><NavLink to=''>Products</NavLink></li>
-            </ul>
+    return () => window.removeEventListener('resize', handleResize)
+}, [])
 
-            <section className="right_section">
-                <button className="cart-btn">
-                    <p>Cart</p>
 
-                    <div>
-                        <img src={cartIcon} alt="cart icon" />
-                        <p className='totalQuantity'>0</p>
-                    </div>
-                </button>
+function showSideNav(){
+    setShowNav(true)
+}
+function closeSideNav(){
+    setShowNav(false)
+}
 
-                <button className='login-btn'>
-                    <p>Login</p>
+const nav = (
+    <> 
+        <ul>
+            <li><NavLink to=''>Home</NavLink></li>
+            <li><NavLink to=''>About</NavLink></li>
+            <li><NavLink to=''>Products</NavLink></li>
+        </ul>
 
-                    <div>
-                        <img src={loginIcon} alt="login icon"/>
-                    </div>
-                </button>
-            </section>
-        </>
-    )
+        <section className="cart-login-section">
+            <button className="cart-btn">
+                <p>Cart</p>
 
-    return(
-        <>
-            <header>
-                <nav>
-                    <img className='logo' src="/logo.svg" alt="logo" />
-                    {
-                        isMobile ? <img src={burgerMenu} className='burgerIcon' onClick={showSideNav}/> 
-                        : windowNav
-                    }
-                </nav>
-            </header>
-            
-            <nav className="sideNav" ref={navRef}>
                 <div>
-                    <img className='logo' src="/logo.svg" alt="logo" />
-                    <img src={crossIcon} alt="cross icon" onClick={closeSideNav}/>
+                    <img src={cartIcon} alt="cart icon" />
+                    <p className='totalQuantity'>0</p>
                 </div>
+            </button>
+
+            <button className='login-btn'>
+                <p>Login</p>
+
+                <div>
+                    <img src={loginIcon} alt="login icon"/>
+                </div>
+            </button>
+        </section>
+    </>
+)
+
+return(
+    <>
+        <header>
+            <nav className='windowNav'>
+                <img className='logo' src="/logo.svg" alt="logo" />
+                {
+                    isMobile ? <img src={burgerMenu} className='burgerIcon' onClick={showSideNav}/> 
+                    : nav
+                }
             </nav>
-        </>
-    )
+        </header>
+        
+        <nav className={`mobileNav ${showNav ? 'showSideNav' : ''}`} ref={navRef}>
+            <div>
+                <img className='logo' src="/logo.svg" alt="logo" />
+                <img src={crossIcon} alt="cross icon" onClick={closeSideNav} className='crossIcon'/>
+            </div>
+
+            {nav}
+        </nav>
+    </>
+)
 }

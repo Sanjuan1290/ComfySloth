@@ -1,100 +1,131 @@
 
 
 header{
-    padding: 10px;
-    letter-spacing: 1.5px;
+padding: 10px;
+letter-spacing: 1.5px;
 }
-header > nav{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 90%;
-    max-width: 1150px;
-    margin: auto;
+.windowNav{
+display: flex;
+align-items: center;
+justify-content: space-between;
+width: 90%;
+max-width: 1150px;
+margin: auto;
 }
-header > nav > .logo{
-    width: 180px;
+.windowNav > .logo{
+width: 180px;
 }
-header > nav > ul{
-    display: flex;
-    gap: 40px;
+.windowNav > ul{
+display: flex;
+gap: 40px;
 }
-header > nav > ul > li{
-    list-style: none;
-    cursor: pointer;
-    text-underline-offset: 10px;
+.windowNav > ul > li{
+cursor: pointer;
+text-underline-offset: 10px;
 }
-header > nav > ul > li:hover{
-    text-decoration: underline;
-    text-decoration-color: #AB7B60;
-    text-decoration-thickness: 2px;
-}
-
-
-header  .right_section{
-    display: flex;
-}
-.right_section > button{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    border: none;
-    letter-spacing: 1.2px;
-    font-size: 22px;
-    font-weight: 500;
-    width: 100px;
-    cursor: pointer;
-    gap: 5px;
-}
-.right_section > button > div{
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.right_section > button > div > img{
-    width: 22px;
+.windowNav > ul > li:hover{
+text-decoration: underline;
+text-decoration-color: #AB7B60;
+text-decoration-thickness: 2px;
 }
 
-.right_section > .cart-btn > div > .totalQuantity{
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-    font-size: 14px;
-    border-radius: 100%;
-    height: 6px;
-    width: 6px;
-    padding: 10px;
-    right: -16px;
-    top: -16px;
-    background-color: #AB7B60;
-    color: white;
+.cart-login-section{
+display: flex;
+}
+.cart-login-section > button{
+display: flex;
+align-items: center;
+justify-content: center;
+background-color: transparent;
+border: none;
+letter-spacing: 1.2px;
+font-size: 22px;
+font-weight: 500;
+width: 100px;
+cursor: pointer;
+gap: 5px;
+}
+.cart-login-section > button > div{
+position: relative;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cart-login-section > button > div > img{
+width: 22px;
+}
+
+.cart-login-section > .cart-btn > div > .totalQuantity{
+position: absolute;
+display: flex;
+justify-content: center;
+align-items: center;
+
+font-size: 14px;
+border-radius: 100%;
+height: 6px;
+width: 6px;
+padding: 10px;
+right: -16px;
+top: -16px;
+background-color: #AB7B60;
+color: white;
 }
 
 .burgerIcon{
-    width: 35px;
-    height: 25px;
-    cursor: pointer;
-    opacity: .7;
+width: 35px;
+height: 25px;
+cursor: pointer;
+opacity: .7;
 }
 
 
-.sideNav{
-    position: absolute;
+.mobileNav{
     display: flex;
     flex-direction: column;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
+    position: fixed;
+    inset: 0;
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
-    background-color: antiquewhite;
+    transition: transform .3s ease-in-out;
+    background-color: white;
 }
-.showSideNav {
+.showSideNav{
     transform: translateX(0);
+}
+
+
+
+.mobileNav > div:nth-of-type(1){
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 40px;
+}
+.mobileNav > div:nth-of-type(1) > .logo{
+    width: 150px;
+}
+.mobileNav > div:nth-of-type(1) > .crossIcon{
+    width: 70px;
+    cursor: pointer;
+}
+.mobileNav > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.mobileNav > ul > li > a{
+    display: block;
+    padding: 15px 40px;
+    background-color: transparent;
+    transform: translateX(0);
+    transition: background-color .8s, transform .8s
+}
+.mobileNav > ul > li > a:hover{
+    background-color: rgba(126, 170, 155, 0.159);
+    transform: translateX(10px);
+}
+.mobileNav > .cart-login-section{
+    justify-content: center;
+    margin-top: 20px;
 }
