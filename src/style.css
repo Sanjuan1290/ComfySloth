@@ -1,6 +1,7 @@
 @import url('./componentsStyle/header.css');
 @import url('./componentsStyle/HomeStyle/shopNowStyle.css');
 @import url('./componentsStyle/HomeStyle/featuredStyle.css');
+@import url('./componentsStyle/HomeStyle/customStyle.css');
 
 *{
     padding: 0;
