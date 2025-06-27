@@ -19,8 +19,8 @@ export default function ShopNow(){
                 !isMobile && <div className="right">
                                 <div></div>
                                 <div>
-                                    <img src="/public/ShopNowImage/niceTable.png" alt="nice table" />
-                                    <img src="/public/ShopNowImage/personWorking.png" alt="person working" />
+                                    <img src="/HomeImages/ShopNowImage/niceTable.png" alt="nice table" />
+                                    <img src="/HomeImages/ShopNowImage/personWorking.png" alt="person working" />
                                 </div>
                             </div> 
             }
