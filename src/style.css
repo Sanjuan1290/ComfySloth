@@ -2,6 +2,7 @@
 @import url('./componentsStyle/HomeStyle/shopNowStyle.css');
 @import url('./componentsStyle/HomeStyle/featuredStyle.css');
 @import url('./componentsStyle/HomeStyle/customStyle.css');
+@import url('./componentsStyle/HomeStyle/newsLetter.css');
 
 *{
     padding: 0;
