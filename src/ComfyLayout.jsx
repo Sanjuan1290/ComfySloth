@@ -1,6 +1,7 @@
 
 import { Outlet } from "react-router-dom"
 import Header from './components/Header'
+import Footer from "./components/Footer"
 import { useState } from "react"
 
 export default function Layout(){
@@ -12,6 +13,7 @@ export default function Layout(){
         <>
             <Header isMobile={isMobile} setIsMobile={setIsMobile}/>
             <Outlet context={{isMobile, setIsMobile}}/>
+            <Footer />
         </>
     )
 }
