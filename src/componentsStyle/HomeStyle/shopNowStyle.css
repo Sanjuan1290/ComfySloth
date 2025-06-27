@@ -1,0 +1,98 @@
+
+.shopNow_Section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(450px + 20px);
+    height: fit-content;
+}
+
+.shopNow_Section > .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding: 0px 60px;
+}
+.shopNow_Section > .left > h1{
+    width: 320px;
+    line-height: 1;
+    font-size: 48px;
+}
+.shopNow_Section > .left > p{
+    font-size: 20px;
+    max-width: 500px;
+    line-height: 2;
+    color: rgb(110, 119, 119);
+}
+.shopNow_Section > .left > button{
+    font-size: 16px;
+    border: none;
+    border-radius: 3px;
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    transition: background-color .4s ease, color .4s ease, width .5s ease, height, .5s ease;
+    color: white;
+    background-color: rgb(171,123,94);
+}
+.shopNow_Section > .left > button:hover{
+    background-color: rgb(217, 180, 157);
+    color: rgb(88, 88, 88);
+}
+
+
+
+
+.shopNow_Section > .right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+.shopNow_Section > .right > div:nth-of-type(1) {
+    width: 50px;
+    height: 450px;
+    background-color: rgb(223,202,192);
+}
+
+
+.shopNow_Section > .right > div:nth-of-type(2){
+    position: relative;
+}
+.shopNow_Section > .right > div:nth-of-type(2) > img:nth-of-type(1){
+    width: 450px;
+}
+.shopNow_Section > .right > div:nth-of-type(2) > img:nth-of-type(2){
+    position: absolute;
+    left: -120px;
+    bottom: 3px;
+    width: 250px;
+}
+
+
+@media(max-width: 990px){
+    .shopNow_Section{
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+    .shopNow_Section > .left{
+        max-width: 700px;
+        padding: 20px;
+        margin: auto;
+        
+    }
+    .shopNow_Section > .left > p{
+        font-size: 15px;
+        max-width: none;
+    }
+    .shopNow_Section > .left > button{
+        width: 120px;
+        height: 40px;
+    }
+}
+
+@media(max-width: 800px){
+    .shopNow_Section > .left > h1{
+        font-size: 40px;
+    }
+}

@@ -7,9 +7,8 @@ import crossIcon from '../assets/crossIcon.png'
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Header(){
+export default function Header({ isMobile, setIsMobile }){
 
-const [isMobile, setIsMobile] = useState(window.innerWidth <= 990)
 const [showNav, setShowNav] = useState(false)
 const navRef = useRef()
 

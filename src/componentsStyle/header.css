@@ -11,6 +11,7 @@ justify-content: space-between;
 width: 90%;
 max-width: 1150px;
 margin: auto;
+z-index: 999;
 }
 .windowNav > .logo{
 width: 180px;
@@ -89,6 +90,7 @@ opacity: .7;
     transform: translateX(-100%);
     transition: transform .3s ease-in-out;
     background-color: white;
+    z-index: 999;
 }
 .showSideNav{
     transform: translateX(0);
