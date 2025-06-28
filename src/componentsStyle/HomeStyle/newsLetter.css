@@ -56,7 +56,7 @@
     cursor: pointer;
     transition: background-color .4s ease, color .4s ease;
 }
-.newsletter_Section > div:nth-of-type(2) > button:hover{
+.newsletter_Section >  div > div > button:hover{
     background-color: rgb(171,123,94);
     color: white;
 }
