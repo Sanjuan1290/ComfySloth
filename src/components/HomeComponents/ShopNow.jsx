@@ -1,4 +1,4 @@
-import { useOutletContext } from "react-router-dom"
+import { NavLink, useOutletContext } from "react-router-dom"
 
 export default function ShopNow(){
 
@@ -11,7 +11,7 @@ export default function ShopNow(){
                 
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iusto, at sed omnis corporis doloremque possimus velit! Repudiandae nisi odit, aperiam odio ducimus, obcaecati libero et quia tempora excepturi quis alias?</p>
 
-                <button>SHOP NOW</button>
+                <NavLink to='/products'>SHOP NOW</NavLink>
             </div>
 
             

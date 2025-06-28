@@ -39,22 +39,22 @@ const nav = (
         </ul>
 
         <section className="cart-login-section">
-            <button className="cart-btn">
+            <NavLink to='/cart' className="cart-btn">
                 <p>Cart</p>
 
                 <div>
                     <img src={cartIcon} alt="cart icon" />
                     <p className='totalQuantity'>0</p>
                 </div>
-            </button>
+            </NavLink>
 
-            <button className='login-btn'>
+            <NavLink to='/login' classNaNavLinkme='login-btn'>
                 <p>Login</p>
 
                 <div>
                     <img src={loginIcon} alt="login icon"/>
                 </div>
-            </button>
+            </NavLink>
         </section>
     </>
 )

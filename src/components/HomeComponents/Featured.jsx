@@ -1,4 +1,4 @@
-
+import { NavLink } from "react-router-dom"
 
 export default function Featured(){
 
@@ -9,34 +9,46 @@ export default function Featured(){
             <div className="featured-products-container">
 
                 <div className="feature-product">
-                    <img src="/HomeImages/FeaturesImages/product7.png" alt="" />
+                    <img src="/HomeImages/FeaturesImages/product7.png" alt="product images" />
                     
                     <div>
                         <p>Entertainment Center</p>
                         <p>$599.99</p>
                     </div>
+
+                    <div className="searchIcon">
+                        <NavLink><img src="/HomeImages/FeaturesImages/searchIcon.png" alt="search icon" /></NavLink>
+                    </div>
                 </div>
 
                 <div className="feature-product">
-                    <img src="/HomeImages/FeaturesImages/product8.png" alt="" />
+                    <img src="/HomeImages/FeaturesImages/product8.png" alt="product images" />
                     
                     <div>
                         <p>high-back bench</p>
                         <p>$399.99</p>
                     </div>
+
+                    <div className="searchIcon">
+                        <NavLink><img src="/HomeImages/FeaturesImages/searchIcon.png" alt="search icon" /></NavLink>
+                    </div>
                 </div>
 
                 <div className="feature-product">
-                    <img src="/HomeImages/FeaturesImages/product11.png" alt="" />
+                    <img src="/HomeImages/FeaturesImages/product11.png" alt="product images" />
                     
                     <div>
                         <p>modern bookshelf</p>
                         <p>$319.99</p>
                     </div>
+
+                    <div className="searchIcon">
+                        <NavLink><img src="/HomeImages/FeaturesImages/searchIcon.png" alt="search icon" /></NavLink>
+                    </div>
                 </div>
             </div>
 
-            <button>ALL PRODUCTS</button>
+            <NavLink to='/products'>ALL PRODUCTS</NavLink>
         </section>
     )
 }

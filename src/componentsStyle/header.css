@@ -34,7 +34,7 @@ text-decoration-thickness: 2px;
 .cart-login-section{
 display: flex;
 }
-.cart-login-section > button{
+.cart-login-section > a{ /*a = NavLink*/
 display: flex;
 align-items: center;
 justify-content: center;
@@ -47,13 +47,13 @@ width: 100px;
 cursor: pointer;
 gap: 5px;
 }
-.cart-login-section > button > div{
+.cart-login-section > a > div{ /*a = NavLink*/
 position: relative;
 display: flex;
 align-items: center;
 justify-content: center;
 }
-.cart-login-section > button > div > img{
+.cart-login-section > a > div > img{ /*a = NavLink*/
 width: 22px;
 }
 
