@@ -7,6 +7,7 @@ import {
 
 import HomeLayout from './ComfyLayout'
 import Home from './Pages/Home'
+import About from './Pages/About'
 
 
 const App = () => {
@@ -14,7 +15,7 @@ const App = () => {
     const router = createBrowserRouter(createRoutesFromElements(
         <Route path='/' element={<HomeLayout />}>
             <Route index element={<Home />} />
-
+            <Route path='/about' element={<About />}/>
         </Route>
     ))
     

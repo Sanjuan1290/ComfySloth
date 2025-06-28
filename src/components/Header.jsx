@@ -33,9 +33,9 @@ function closeSideNav(){
 const nav = (
     <> 
         <ul>
-            <li><NavLink to=''>Home</NavLink></li>
-            <li><NavLink to=''>About</NavLink></li>
-            <li><NavLink to=''>Products</NavLink></li>
+            <li><NavLink to='/'>Home</NavLink></li>
+            <li><NavLink to='/about'>About</NavLink></li>
+            <li><NavLink to='/products'>Products</NavLink></li>
         </ul>
 
         <section className="cart-login-section">
@@ -63,7 +63,7 @@ return(
     <>
         <header>
             <nav className='windowNav'>
-                <img className='logo' src="/logo.svg" alt="logo" />
+                <NavLink to='/'><img className='logo' src="/logo.svg" alt="logo" /></NavLink>
                 {
                     isMobile ? <img src={burgerMenu} className='burgerIcon' onClick={showSideNav}/> 
                     : nav
@@ -73,7 +73,7 @@ return(
         
         <nav className={`mobileNav ${isMobile && showNav ? 'showSideNav' : ''}`} ref={navRef}>
             <div>
-                <img className='logo' src="/logo.svg" alt="logo" />
+                <NavLink to='/'><img className='logo' src="/logo.svg" alt="logo" /></NavLink>
                 <img src={crossIcon} alt="cross icon" onClick={closeSideNav} className='crossIcon'/>
             </div>
 

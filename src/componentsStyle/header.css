@@ -13,7 +13,7 @@ max-width: 1150px;
 margin: auto;
 z-index: 999;
 }
-.windowNav > .logo{
+.windowNav > a > .logo{
 width: 180px;
 }
 .windowNav > ul{
@@ -104,7 +104,7 @@ opacity: .7;
     justify-content: space-between;
     padding: 0px 40px;
 }
-.mobileNav > div:nth-of-type(1) > .logo{
+.mobileNav > div:nth-of-type(1) > a > .logo{
     width: 150px;
 }
 .mobileNav > div:nth-of-type(1) > .crossIcon{
