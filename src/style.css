@@ -5,6 +5,7 @@
 @import url('./componentsStyle/HomeStyle/customStyle.css');
 @import url('./componentsStyle/HomeStyle/newsLetter.css');
 @import url('./componentsStyle/aboutStyle.css');
+@import url('./componentsStyle/ProductsStyle/headerNav.css');
 
 *{
     padding: 0;

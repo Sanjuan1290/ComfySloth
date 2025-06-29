@@ -131,3 +131,10 @@ opacity: .7;
     justify-content: center;
     margin-top: 20px;
 }
+
+
+.nav_Active{
+    text-decoration: underline;
+    text-decoration-color: #AB7B60;
+    text-decoration-thickness: 2px;
+}

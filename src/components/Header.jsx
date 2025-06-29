@@ -33,9 +33,9 @@ function closeSideNav(){
 const nav = (
     <> 
         <ul>
-            <li><NavLink to='/'>Home</NavLink></li>
-            <li><NavLink to='/about'>About</NavLink></li>
-            <li><NavLink to='/products'>Products</NavLink></li>
+            <li><NavLink to='/' className={({isActive}) => isActive ? 'nav_Active' : ''}>Home</NavLink></li>
+            <li><NavLink to='/about' className={({isActive}) => isActive ? 'nav_Active' : ''}>About</NavLink></li>
+            <li><NavLink to='/products' className={({isActive}) => isActive ? 'nav_Active' : ''}>Products</NavLink></li>
         </ul>
 
         <section className="cart-login-section">
