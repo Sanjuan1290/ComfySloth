@@ -5,7 +5,9 @@ export default function HeaderNav(){
 
     return(
 
-        <h1><NavLink to='/'>Home</NavLink> / Products</h1>
+        <div>
+            <h1><NavLink to='/'>Home</NavLink> / About</h1>
+        </div>
    
     )
 }
