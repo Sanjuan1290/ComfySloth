@@ -4,11 +4,11 @@ export default function FilteredSection(){
 
     return(
         <section className="filter_Section">
-            <input type="text" placeholder="Search"/>
+            <input type="text" placeholder="Search" className="filterSearch"/>
 
             <section className="category">
                 <h3>Category</h3>
-                <button className="categoryAllBtn">All</button>
+                <button className="categoryAllBtn categoryActive">All</button>
                 <button className="OfficeBtn">Office</button>
                 <button className="LivingRoomBtn">Living Room</button>
                 <button className="KitchenBtn">Kitchen</button>
@@ -20,7 +20,7 @@ export default function FilteredSection(){
             <section className="company">
                 <h3>Company</h3>
                 
-                <select name="company" id="company">
+                <select name="companySelect" id="companySelect">
                     <option value="All">All</option>
                     <option value="Marcos">Marcos</option>
                     <option value="Liddy">Liddy</option>
@@ -33,9 +33,9 @@ export default function FilteredSection(){
                 <h3>Colors</h3>
 
                 <div>
-                    <button className="colorsAllBtn"></button>
+                    <button className="colorsAllBtn colorsActive">All</button>
                     <button className="red"></button>
-                    <button className="green"></button>
+                    <button className="green primaryColorActive"></button>
                     <button className="blue"></button>
                     <button className="black"></button>
                     <button className="yellow"></button>

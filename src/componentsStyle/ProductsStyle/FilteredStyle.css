@@ -1,0 +1,183 @@
+
+
+.filter_Section{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    padding: 0 50px 0 25px;
+    max-width: fit-content;
+    background-color: antiquewhite;
+}
+.filter_Section  h3{
+    letter-spacing: 1px;
+}
+
+
+.filterSearch{
+    padding: 8px 10px;
+    max-width: 160px;
+    border-radius: 3px;
+    border: none;
+    letter-spacing: 1px;
+    background-color: rgb(240,244,248);
+}
+.filterSearch::placeholder{
+    letter-spacing: 1.2px;
+    font-weight: 500;
+}
+
+
+.category{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.category > button{
+    position: relative;
+    background-color: transparent;
+    border: none;
+
+    cursor: pointer;
+    max-width: fit-content;
+    letter-spacing: 1.1px;
+    font-weight: 500;
+    color: rgba(129, 129, 129, 0.878);
+}
+.category > button:hover{
+    color: rgb(101, 101, 101);
+}
+.categoryActive::after{
+    position: absolute;
+    content: '';
+    background-color: rgb(101, 101, 101);
+    width: 100%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+}
+
+
+.company > select{
+    background-color: rgb(240,244,248);
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 3px 5px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+
+.colors{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.colors > div{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.colorsAllBtn{
+    font-size: 15px;
+    line-height: 15px;
+    letter-spacing: .5px;
+
+}
+
+.colorsActive{
+    color: rgba(37, 36, 36, 0.878);
+}
+.colorsActive::after{
+    position: absolute;
+    content: '';
+    background-color: rgb(101, 101, 101);
+
+    width: 100%;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+}
+
+
+
+.colors > div > button{
+    position: relative;
+    border: none;
+    border-radius: 100%;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+}
+.colors > div > .red{
+    background-color: red;
+    opacity: .7;
+}
+.colors > div > .green{
+    background-color: green;
+    opacity: .7;
+}
+.colors > div > .blue{
+    background-color: blue;
+    opacity: .7;
+}
+.colors > div > .black{
+    background-color: black;
+    opacity: .7;
+}
+.colors > div > .yellow{
+    background-color: rgb(255, 166, 0);
+    opacity: .7;
+}
+
+
+.colors > div > .primaryColorActive{
+    opacity: 1;
+}
+.colors > div > .primaryColorActive::after{
+    position: absolute;
+    content: '✔';
+    color: white;
+    font-size: 10px;
+    bottom: 1px;
+    left: 3px;
+}
+
+
+.price{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+.price > input{
+    width: 130px;
+}
+
+.freeShipping{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.freeShipping > input{
+    cursor: pointer;
+}
+
+.clearFilterBtn{
+    background-color: rgb(186,37,36);
+    color: white;
+    letter-spacing: 1.3px;
+    font-weight: 500;
+    border: none;
+    border-radius: 3px;
+    width: fit-content;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+.clearFilterBtn:hover{
+    opacity: .9;
+}

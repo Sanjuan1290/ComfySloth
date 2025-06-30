@@ -1,12 +1,15 @@
 @import url('./componentsStyle/header.css');
 @import url('./componentsStyle/footer.css');
+
 @import url('./componentsStyle/HomeStyle/shopNowStyle.css');
 @import url('./componentsStyle/HomeStyle/featuredStyle.css');
 @import url('./componentsStyle/HomeStyle/customStyle.css');
 @import url('./componentsStyle/HomeStyle/newsLetter.css');
+
 @import url('./componentsStyle/aboutStyle.css');
 @import url('./componentsStyle/headerNav.css');
 
+@import url('./componentsStyle/ProductsStyle/FilteredStyle.css');
 *{
     padding: 0;
     margin: 0;
