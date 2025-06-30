@@ -2,19 +2,22 @@
 import { NavLink } from "react-router-dom"
 import HeaderNav from "../components/HeaderNav"
 
-import FilteredSection from '../components/AboutComponents/FilteredSection'
+import FilteredSection from '../components/ProductsComponents/FilteredSection'
 
 export default function Products(){
 
     return(
-        <section className="products_Section">
+        <>
             <HeaderNav navLocation={'Products'}/>
 
-            <main className="store-container">
-                    <FilteredSection />
+            <section className="products_Section">
 
-            </main>
+                <main className="store-container">
+                        <FilteredSection />
 
-        </section>
+                </main>
+
+            </section>
+        </>
     )
 }

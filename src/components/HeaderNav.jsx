@@ -5,7 +5,7 @@ export default function HeaderNav({ navLocation }){
 
     return(
 
-        <div>
+        <div className="headerNav">
             <h1><NavLink to='/'>Home</NavLink> / { navLocation }</h1>
         </div>
    

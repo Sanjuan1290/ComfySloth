@@ -48,7 +48,7 @@ const nav = (
                 </div>
             </NavLink>
 
-            <NavLink to='/login' classNaNavLinkme='login-btn'>
+            <NavLink to='/login' className='login-btn'>
                 <p>Login</p>
 
                 <div>
