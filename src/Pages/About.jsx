@@ -1,14 +1,13 @@
 
 import { NavLink } from "react-router-dom"
+import HeaderNav from '../components/HeaderNav'
 
 export default function About(){
 
     return(
         <section className="about_Section">
 
-            <div>
-                <h1><NavLink to='/'>Home</NavLink> / About</h1>
-            </div>
+            <HeaderNav navLocation={'About'}/>
 
             <div>
                 <img src="/HomeImages/ShopNowImage/niceTable.png" alt="nice table" />
