@@ -4,8 +4,8 @@
 }
 
 .headerNav > h1{
-    padding: 40px 20px;
-    max-width: 1100px;
+    padding: 40px 60px;
+    max-width: 1220px;
     margin: 0px auto;
     color: rgb(68,50,38);
     font-size: 33px;
@@ -23,6 +23,7 @@
 
     .headerNav > h1{
         font-size: 25px;
+        padding: 40px 20px;
     }
 
 }

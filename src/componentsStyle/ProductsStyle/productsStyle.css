@@ -1,6 +1,30 @@
 
 .products_section{
+    display: flex;
     background-color: rgba(250, 235, 215, 0.413);
-    padding: 40px 0px;
-    height: fit-content;
+    padding: 40px 60px;
+    height: 1000px;
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: padding .4s ease;
+}
+
+
+.products_section > section{
+    flex: 1;
+}
+
+
+@media (max-width: 850px) {
+    .products_section{
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 740px){
+
+    .products_section{
+        padding: 40px 20px;
+    }
+
 }

@@ -5,7 +5,7 @@
     grid-template-columns: 1fr 1fr;
     padding: 60px;
     gap: 50px;
-    max-width: 1100px;
+    max-width: 1200px;
     transition: padding .3s ease;
     margin: 0px auto;
 }

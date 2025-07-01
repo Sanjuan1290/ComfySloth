@@ -8,6 +8,7 @@
     gap: 15px;
 
     padding: 20px 50px 0 25px;
+    height: fit-content;
     max-width: fit-content;
     background-color: antiquewhite;
 }
@@ -182,4 +183,11 @@
 }
 .clearFilterBtn:hover{
     opacity: .9;
+}
+
+
+@media (max-width: 850px) {
+    .filter_Section{
+        position: relative;
+    }
 }

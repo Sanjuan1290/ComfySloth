@@ -9,8 +9,10 @@
 @import url('./componentsStyle/aboutStyle.css');
 @import url('./componentsStyle/headerNav.css');
 
-@import url('./componentsStyle/ProductsStyle/FilteredStyle.css');
 @import url('./componentsStyle/ProductsStyle/productsStyle.css');
+@import url('./componentsStyle/ProductsStyle/FilteredStyle.css');
+@import url('./componentsStyle/ProductsStyle/SortByPriceSectionStyle.css');
+/* @import url('./componentsStyle/ProductsStyle/ProductsContainerStyle.css'); */
 
 *{
     padding: 0;
