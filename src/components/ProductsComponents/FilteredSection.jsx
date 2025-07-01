@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 import { formatPrice } from '../../util/formatPrice'
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 export default function FilteredSection(
     { 
@@ -12,6 +12,7 @@ export default function FilteredSection(
         setShipping, 
     }
 ){
+    const searchRef = useRef()
     const [rawPriceRange, setRawpriceRange] = useState(3099.99)
 
     useEffect(() => { // use with PriceChange to smoothen UI changes
@@ -47,9 +48,19 @@ export default function FilteredSection(
     function handleShippingChange(e){
         setShipping(e.target.checked)
     }
+
+    function handleClearFilterClick(){
+        setCategory('All')
+        setSearch('')
+        searchRef.current.value = ''
+        setCompany('All')
+        setColor('All')
+        setPriceRange(3099.99)
+        setShipping(false)
+    }
     return(
         <section className="filter_Section">
-            <input onChange={handleSearch} type="text" placeholder="Search" className="filterSearch"/>
+            <input onChange={handleSearch} type="text" placeholder="Search" className="filterSearch" ref={searchRef}/>
 
             <section className="category">
                 <h3>Category</h3>
@@ -98,7 +109,7 @@ export default function FilteredSection(
                 <input onChange={handleShippingChange} type="checkbox" />
             </label>
 
-            <button className="clearFilterBtn">Clear Filters</button>
+            <button onClick={handleClearFilterClick} className="clearFilterBtn">Clear Filters</button>
         </section>
     )
 }
