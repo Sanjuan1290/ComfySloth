@@ -18,6 +18,7 @@ export default function Products(){
 
     const { products } = useLoaderData()
     const [category, setCategory] = useState('All')
+    const [search, setSearch] = useState('')
 
 
     return(
@@ -26,11 +27,14 @@ export default function Products(){
 
 
             <main className="products_section">
-                    <FilteredSection category={category} setCategory={setCategory}/>
+                    <FilteredSection 
+                        category={category} setCategory={setCategory} 
+                        setSearch={setSearch}/>
 
                     <section>
                         <SortByPriceSection />                        
-                        <ProductsContainer products={products} category={category}/>
+                        <ProductsContainer products={products} category={category}
+                        search={search}/>
                     </section>
             </main>
 

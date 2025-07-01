@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom"
 
-export default function FilteredSection({ category, setCategory }){
+export default function FilteredSection({ category, setCategory, setSearch }){
+
+    function handleSearch(e){
+        setSearch(String(e.target.value).toLowerCase())
+    }
 
     function handleCategoryClick(e){
         setCategory(e.target.innerText)
@@ -8,7 +12,7 @@ export default function FilteredSection({ category, setCategory }){
 
     return(
         <section className="filter_Section">
-            <input type="text" placeholder="Search" className="filterSearch"/>
+            <input onChange={handleSearch} type="text" placeholder="Search" className="filterSearch"/>
 
             <section className="category">
                 <h3>Category</h3>
