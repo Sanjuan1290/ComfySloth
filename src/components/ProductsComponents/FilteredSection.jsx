@@ -9,6 +9,7 @@ export default function FilteredSection(
         setCompany, 
         color, setColor,
         priceRange, setPriceRange,
+        shipping,
         setShipping, 
     }
 ){
@@ -106,7 +107,7 @@ export default function FilteredSection(
 
             <label className="freeShipping">
                 Free Shipping
-                <input onChange={handleShippingChange} type="checkbox" />
+                <input onChange={handleShippingChange} type="checkbox" checked={shipping}/>
             </label>
 
             <button onClick={handleClearFilterClick} className="clearFilterBtn">Clear Filters</button>

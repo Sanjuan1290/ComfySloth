@@ -37,7 +37,7 @@ export default function Products(){
                         setCompany={setCompany}
                         color={color} setColor={setColor}
                         priceRange={priceRange} setPriceRange={setPriceRange}
-                        setShipping={setShipping}/>
+                        shipping={shipping} setShipping={setShipping}/>
 
                     <section>
                         <SortByPriceSection
