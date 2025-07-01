@@ -1,6 +1,25 @@
 import { NavLink } from "react-router-dom"
+import { formatPrice } from '../../util/formatPrice'
+import { useEffect, useState } from "react"
 
-export default function FilteredSection({ category, setCategory, setSearch, setCompany }){
+export default function FilteredSection(
+    { 
+        category, setCategory, 
+        setSearch, 
+        setCompany, 
+        color, setColor,
+        priceRange, setPriceRange 
+    }
+){
+    const [rawPriceRange, setRawpriceRange] = useState(3099.99)
+
+    useEffect(() => { // use with PriceChange to smoothen UI changes
+        let raf = requestAnimationFrame(() => {
+            setPriceRange(rawPriceRange)
+        })
+
+        return () => cancelAnimationFrame(raf)
+    }, [rawPriceRange])
 
     function handleSearch(e){
         setSearch(String(e.target.value).toLowerCase())
@@ -12,6 +31,16 @@ export default function FilteredSection({ category, setCategory, setSearch, setC
 
     function handleCompanyChange(e){
         setCompany(e.target.value)
+    }
+
+    function handleColorClick(e){
+        console.log(e.target.value);
+        console.log(color);
+        setColor(e.target.value)
+    }
+
+    function handlePriceChange(e){
+        setRawpriceRange(e.target.value);
     }
 
     return(
@@ -45,19 +74,19 @@ export default function FilteredSection({ category, setCategory, setSearch, setC
                 <h3>Colors</h3>
 
                 <div>
-                    <button className="colorsAllBtn colorsActive">All</button>
-                    <button className="red"></button>
-                    <button className="green primaryColorActive"></button>
-                    <button className="blue"></button>
-                    <button className="black"></button>
-                    <button className="yellow"></button>
+                    <button onClick={handleColorClick} value={`All`} className={`All colorsAllBtn ${color === 'All' ? 'colorsActive' : ''}`}>All</button>
+                    <button onClick={handleColorClick} value={`red`} className={`red ${color === 'red' ? 'primaryColorActive' : ''}`}></button>
+                    <button onClick={handleColorClick} value={`green`} className={`green ${color === 'green' ? 'primaryColorActive' : ''}`}></button>
+                    <button onClick={handleColorClick} value={`blue`} className={`blue ${color === 'blue' ? 'primaryColorActive' : ''}`}></button>
+                    <button onClick={handleColorClick} value={`black`} className={`black ${color === 'black' ? 'primaryColorActive' : ''}`}></button>
+                    <button onClick={handleColorClick} value={`yellow`} className={`yellow ${color === 'yellow' ? 'primaryColorActive' : ''}`}></button>
                 </div>
             </section>
 
             <section className="price">
                 <h3>Price</h3>
-                <p>$3,099.99</p>
-                <input type="range" min={0} max={3099.99} step={1}/>
+                <p>{formatPrice(Number(priceRange * 100))}</p>
+                <input onChange={handlePriceChange} type="range" min={0} max={3099.99} step={.01} value={Number(priceRange)}/>
             </section>
 
             <label className="freeShipping">

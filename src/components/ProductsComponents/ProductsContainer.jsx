@@ -5,7 +5,7 @@ import { Suspense } from "react"
 import { formatPrice } from '../../util/formatPrice'
 import searchIcon from '../../assets/searchIcon.png'
 
-export default function ProductsContainer({ products, category, search, company }){
+export default function ProductsContainer({ products, category, search, company, color, priceRange }){
 
     return(
         <section className="productsDisplay_Section">
@@ -20,8 +20,14 @@ export default function ProductsContainer({ products, category, search, company 
                                 const nameMatch = product.name.toLowerCase().includes(search);
                                 const categoryMatch = category === 'All' || product.category === category;
                                 const companyMatch = company === 'All' || company === product.brand;
+                                const colorMatch = color === 'All' || product.colors.includes(color)
+                                const priceRangeMatch = (product.priceCents / 100) <= priceRange
 
-                                if(nameMatch && categoryMatch && companyMatch){ // filter products
+                                if( nameMatch &&        // filter products
+                                    categoryMatch && 
+                                    companyMatch && 
+                                    colorMatch && 
+                                    priceRangeMatch){ 
                                     return  <div key={product._id} className="product-container">
                                                 <img src={`https://comfysloth-server.onrender.com/${product.images[0]}`} alt={product.name} />
         

@@ -18,6 +18,8 @@ export default function Products(){
     const [category, setCategory] = useState('All')
     const [search, setSearch] = useState('')
     const [company, setCompany] = useState('All')
+    const [color, setColor] = useState('All')
+    const [priceRange, setPriceRange] = useState(3099.99)
 
 
     return(
@@ -29,7 +31,9 @@ export default function Products(){
                     <FilteredSection 
                         category={category} setCategory={setCategory} 
                         setSearch={setSearch}
-                        setCompany={setCompany}/>
+                        setCompany={setCompany}
+                        color={color} setColor={setColor}
+                        priceRange={priceRange} setPriceRange={setPriceRange}/>
 
                     <section>
                         <SortByPriceSection />                        
@@ -37,7 +41,9 @@ export default function Products(){
                             products={products} 
                             category={category}
                             search={search}
-                            company={company}/>
+                            company={company}
+                            color={color}
+                            priceRange={priceRange}/>
                     </section>
             </main>
 
