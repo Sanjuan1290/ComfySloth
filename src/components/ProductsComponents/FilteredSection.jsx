@@ -8,7 +8,8 @@ export default function FilteredSection(
         setSearch, 
         setCompany, 
         color, setColor,
-        priceRange, setPriceRange 
+        priceRange, setPriceRange,
+        setShipping, 
     }
 ){
     const [rawPriceRange, setRawpriceRange] = useState(3099.99)
@@ -39,10 +40,13 @@ export default function FilteredSection(
         setColor(e.target.value)
     }
 
-    function handlePriceChange(e){
+    function handlePriceChange(e){ 
         setRawpriceRange(e.target.value);
     }
 
+    function handleShippingChange(e){
+        setShipping(e.target.checked)
+    }
     return(
         <section className="filter_Section">
             <input onChange={handleSearch} type="text" placeholder="Search" className="filterSearch"/>
@@ -91,7 +95,7 @@ export default function FilteredSection(
 
             <label className="freeShipping">
                 Free Shipping
-                <input type="checkbox" />
+                <input onChange={handleShippingChange} type="checkbox" />
             </label>
 
             <button className="clearFilterBtn">Clear Filters</button>

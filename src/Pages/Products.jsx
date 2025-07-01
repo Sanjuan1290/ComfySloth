@@ -14,13 +14,16 @@ export async function loader(){
 
 export default function Products(){
 
+
     const { products } = useLoaderData()
     const [category, setCategory] = useState('All')
     const [search, setSearch] = useState('')
     const [company, setCompany] = useState('All')
     const [color, setColor] = useState('All')
     const [priceRange, setPriceRange] = useState(3099.99)
+    const [shipping, setShipping] = useState(false)
 
+    const [productNumberFound, setProductNumberFound] = useState(null)
 
     return(
         <>
@@ -33,17 +36,21 @@ export default function Products(){
                         setSearch={setSearch}
                         setCompany={setCompany}
                         color={color} setColor={setColor}
-                        priceRange={priceRange} setPriceRange={setPriceRange}/>
+                        priceRange={priceRange} setPriceRange={setPriceRange}
+                        setShipping={setShipping}/>
 
                     <section>
-                        <SortByPriceSection />                        
+                        <SortByPriceSection
+                            productNumberFound={productNumberFound} />                        
                         <ProductsContainer 
                             products={products} 
                             category={category}
                             search={search}
                             company={company}
                             color={color}
-                            priceRange={priceRange}/>
+                            priceRange={priceRange}
+                            shipping={shipping}
+                            setProductNumberFound={setProductNumberFound}/>
                     </section>
             </main>
 

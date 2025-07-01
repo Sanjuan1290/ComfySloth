@@ -1,11 +1,23 @@
 
 import { Await, NavLink } from "react-router-dom"
-import { Suspense } from "react"
+import { Suspense, useEffect, useMemo } from "react"
 
 import { formatPrice } from '../../util/formatPrice'
+
 import searchIcon from '../../assets/searchIcon.png'
 
-export default function ProductsContainer({ products, category, search, company, color, priceRange }){
+export default function ProductsContainer(
+    { 
+        products, 
+        category, 
+        search, 
+        company, 
+        color, 
+        priceRange, 
+        shipping,
+        setProductNumberFound,
+    }
+){
 
     return(
         <section className="productsDisplay_Section">
@@ -16,33 +28,45 @@ export default function ProductsContainer({ products, category, search, company,
                     {
                         (data) => {
                             console.log(data);
-                            return data.map(product => {
-                                const nameMatch = product.name.toLowerCase().includes(search);
-                                const categoryMatch = category === 'All' || product.category === category;
-                                const companyMatch = company === 'All' || company === product.brand;
-                                const colorMatch = color === 'All' || product.colors.includes(color)
-                                const priceRangeMatch = (product.priceCents / 100) <= priceRange
+                            const filteredProducts = useMemo(()=> {
+                                return  data.filter(product => {
+                                        const nameMatch = product.name.toLowerCase().includes(search);
+                                        const categoryMatch = category === 'All' || product.category === category;
+                                        const companyMatch = company === 'All' || company === product.brand;
+                                        const colorMatch = color === 'All' || product.colors.includes(color)
+                                        const priceRangeMatch = (product.priceCents / 100) <= priceRange
+                                        const shippingMatch = shipping === false || product.freeShipping === true
 
-                                if( nameMatch &&        // filter products
-                                    categoryMatch && 
-                                    companyMatch && 
-                                    colorMatch && 
-                                    priceRangeMatch){ 
-                                    return  <div key={product._id} className="product-container">
-                                                <img src={`https://comfysloth-server.onrender.com/${product.images[0]}`} alt={product.name} />
-        
-                                                <div>
-                                                    <p>{product.name}</p>
-                                                    <p>{(formatPrice(product.priceCents))}</p>
-                                                </div>
-        
-                                                <div>
-                                                    <NavLink to={product.SKU}><img src={searchIcon} alt="search icon" /></NavLink>
-                                                </div>
-                                            </div>        
-                                }else return null
-                            })
-                        }
+                                        return(
+                                            nameMatch &&    
+                                            categoryMatch && 
+                                            companyMatch && 
+                                            colorMatch && 
+                                            priceRangeMatch &&
+                                            shippingMatch 
+                                        )
+                                    })
+                                }, [data, category, search, company, color, priceRange, shipping])
+
+                            useEffect(()=>{
+                                setProductNumberFound(filteredProducts.length)
+                            }, [filteredProducts])
+
+                            return filteredProducts.map(product => (
+                                    <div key={product._id} className="product-container">
+                                        <img src={`https://comfysloth-server.onrender.com/${product.images[0]}`} alt={product.name} />
+
+                                        <div>
+                                            <p>{product.name}</p>
+                                            <p>{(formatPrice(product.priceCents))}</p>
+                                        </div>
+
+                                        <div>
+                                            <NavLink to={product.SKU}><img src={searchIcon} alt="search icon" /></NavLink>
+                                        </div>
+                                    </div>        
+                            ))
+                        } 
                     }
                 </Await>
             </Suspense>

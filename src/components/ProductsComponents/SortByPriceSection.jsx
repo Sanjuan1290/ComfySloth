@@ -1,7 +1,9 @@
 import gridIcon from '../../assets/gridIcon.png'
 import flexColumnIcon from '../../assets/flexColumnIcon.png'
+import { useEffect } from 'react'
 
-export default function SortByPriceSection(){
+
+export default function SortByPriceSection({ productNumberFound}){
 
     return(
         <section className="sortByPrice_Section">
@@ -11,7 +13,7 @@ export default function SortByPriceSection(){
                 <img src={flexColumnIcon} alt="flexColumnIcon" className="flexColumnIcon" />
             </div>
 
-            <p>22 products found</p>
+            <p>{productNumberFound} products found</p>
 
             <div className='line'></div>
 
