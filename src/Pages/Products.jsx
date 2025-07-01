@@ -9,9 +9,7 @@ import { useState } from "react"
 
 export async function loader(){
     const res = await fetch('https://comfysloth-server.onrender.com/api/v1/products')
-    const data = await res.json()
-
-    return defer({products: data})
+    return defer({products: res.json()})
 }
 
 export default function Products(){
@@ -19,6 +17,7 @@ export default function Products(){
     const { products } = useLoaderData()
     const [category, setCategory] = useState('All')
     const [search, setSearch] = useState('')
+    const [company, setCompany] = useState('All')
 
 
     return(
@@ -29,12 +28,16 @@ export default function Products(){
             <main className="products_section">
                     <FilteredSection 
                         category={category} setCategory={setCategory} 
-                        setSearch={setSearch}/>
+                        setSearch={setSearch}
+                        setCompany={setCompany}/>
 
                     <section>
                         <SortByPriceSection />                        
-                        <ProductsContainer products={products} category={category}
-                        search={search}/>
+                        <ProductsContainer 
+                            products={products} 
+                            category={category}
+                            search={search}
+                            company={company}/>
                     </section>
             </main>
 
