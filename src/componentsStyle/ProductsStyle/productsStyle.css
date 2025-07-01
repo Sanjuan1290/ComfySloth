@@ -3,7 +3,7 @@
     display: flex;
     background-color: rgba(250, 235, 215, 0.413);
     padding: 40px 60px;
-    height: 1000px;
+    height: fit-content;
     max-width: 1200px;
     margin: 0 auto;
     transition: padding .4s ease;
