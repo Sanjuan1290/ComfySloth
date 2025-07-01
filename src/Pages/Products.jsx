@@ -5,9 +5,9 @@ import HeaderNav from "../components/HeaderNav"
 import FilteredSection from '../components/ProductsComponents/FilteredSection'
 import SortByPriceSection from '../components/ProductsComponents/SortByPriceSection'
 import ProductsContainer from '../components/ProductsComponents/ProductsContainer'
+import { useState } from "react"
 
 export async function loader(){
-
     const res = await fetch('https://comfysloth-server.onrender.com/api/v1/products')
     const data = await res.json()
 
@@ -17,6 +17,8 @@ export async function loader(){
 export default function Products(){
 
     const { products } = useLoaderData()
+    const [category, setCategory] = useState('All')
+
 
     return(
         <>
@@ -24,11 +26,11 @@ export default function Products(){
 
 
             <main className="products_section">
-                    <FilteredSection />
+                    <FilteredSection category={category} setCategory={setCategory}/>
 
                     <section>
                         <SortByPriceSection />                        
-                        <ProductsContainer products={products}/>
+                        <ProductsContainer products={products} category={category}/>
                     </section>
             </main>
 

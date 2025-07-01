@@ -1,6 +1,10 @@
 import { NavLink } from "react-router-dom"
 
-export default function FilteredSection(){
+export default function FilteredSection({ category, setCategory }){
+
+    function handleCategoryClick(e){
+        setCategory(e.target.innerText)
+    }
 
     return(
         <section className="filter_Section">
@@ -8,13 +12,13 @@ export default function FilteredSection(){
 
             <section className="category">
                 <h3>Category</h3>
-                <button className="categoryAllBtn categoryActive">All</button>
-                <button className="OfficeBtn">Office</button>
-                <button className="LivingRoomBtn">Living Room</button>
-                <button className="KitchenBtn">Kitchen</button>
-                <button className="BedroomBtn">Bedroom</button>
-                <button className="DiningBtn">Dining</button>
-                <button className="KidsBtn">Kids</button>
+                <button onClick={handleCategoryClick} className={`categoryAllBtn ${category === 'All'? 'categoryActive' : ''}`}>All</button>
+                <button onClick={handleCategoryClick} className={`OfficeBtn ${category === 'Office'? 'categoryActive' : ''}`}>Office</button>
+                <button onClick={handleCategoryClick} className={`LivingRoomBtn ${category === 'Living Room'? 'categoryActive' : ''}`}>Living Room</button>
+                <button onClick={handleCategoryClick} className={`KitchenBtn ${category === 'Kitchen'? 'categoryActive' : ''}`}>Kitchen</button>
+                <button onClick={handleCategoryClick} className={`BedroomBtn ${category === 'Bedroom'? 'categoryActive' : ''}`}>Bed Room</button>
+                <button onClick={handleCategoryClick} className={`DiningBtn ${category === 'Dining'? 'categoryActive' : ''}`}>Dining</button>
+                <button onClick={handleCategoryClick} className={`KidsBtn ${category === 'Kids'? 'categoryActive' : ''}`}>Kids</button>
             </section>
 
             <section className="company">
