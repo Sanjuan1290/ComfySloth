@@ -7,10 +7,9 @@
     flex-direction: column;
     gap: 15px;
 
-    padding: 20px 50px 0 25px;
+    padding: 10px 50px 0 0;
     height: fit-content;
     max-width: fit-content;
-    background-color: antiquewhite;
 }
 .filter_Section  h3{
     letter-spacing: 1px;

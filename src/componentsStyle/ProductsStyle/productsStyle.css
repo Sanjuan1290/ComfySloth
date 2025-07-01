@@ -1,7 +1,6 @@
 
 .products_section{
     display: flex;
-    background-color: rgba(250, 235, 215, 0.413);
     padding: 40px 60px;
     height: fit-content;
     max-width: 1200px;

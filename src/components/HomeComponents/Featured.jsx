@@ -1,4 +1,5 @@
 import { NavLink } from "react-router-dom"
+import searchIcon from '../../assets/searchIcon.png'
 
 export default function Featured(){
 
@@ -17,7 +18,7 @@ export default function Featured(){
                     </div>
 
                     <div className="searchIcon">
-                        <NavLink><img src="/HomeImages/FeaturesImages/searchIcon.png" alt="search icon" /></NavLink>
+                        <NavLink><img src={searchIcon} alt="search icon" /></NavLink>
                     </div>
                 </div>
 
@@ -30,7 +31,7 @@ export default function Featured(){
                     </div>
 
                     <div className="searchIcon">
-                        <NavLink><img src="/HomeImages/FeaturesImages/searchIcon.png" alt="search icon" /></NavLink>
+                        <NavLink><img src={searchIcon} alt="search icon" /></NavLink>
                     </div>
                 </div>
 
@@ -43,7 +44,7 @@ export default function Featured(){
                     </div>
 
                     <div className="searchIcon">
-                        <NavLink><img src="/HomeImages/FeaturesImages/searchIcon.png" alt="search icon" /></NavLink>
+                        <NavLink><img src={searchIcon} alt="search icon" /></NavLink>
                     </div>
                 </div>
             </div>

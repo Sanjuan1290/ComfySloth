@@ -1,8 +1,9 @@
 
-import { Await } from "react-router-dom"
+import { Await, NavLink } from "react-router-dom"
 import { Suspense } from "react"
 
 import { formatPrice } from '../../util/formatPrice'
+import searchIcon from '../../assets/searchIcon.png'
 
 export default function ProductsContainer({ products }){
 
@@ -23,7 +24,11 @@ export default function ProductsContainer({ products }){
                                         <p>{product.name}</p>
                                         <p>{(formatPrice(product.priceCents))}</p>
                                     </div>
-                                </div>
+
+                                    <div>
+                                        <NavLink to={product.SKU}><img src={searchIcon} alt="search icon" /></NavLink>
+                                    </div>
+                                </div>        
                             ))
                         }
                     }
