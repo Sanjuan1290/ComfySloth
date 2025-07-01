@@ -34,7 +34,7 @@ export default function Products(){
                     <FilteredSection 
                         category={category} setCategory={setCategory} 
                         setSearch={setSearch}
-                        setCompany={setCompany}
+                        company={company} setCompany={setCompany}
                         color={color} setColor={setColor}
                         priceRange={priceRange} setPriceRange={setPriceRange}
                         shipping={shipping} setShipping={setShipping}/>

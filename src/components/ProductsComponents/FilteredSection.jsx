@@ -6,7 +6,7 @@ export default function FilteredSection(
     { 
         category, setCategory, 
         setSearch, 
-        setCompany, 
+        company, setCompany, 
         color, setColor,
         priceRange, setPriceRange,
         shipping,
@@ -77,7 +77,7 @@ export default function FilteredSection(
             <section className="company">
                 <h3>Company</h3>
                 
-                <select onChange={handleCompanyChange} name="companySelect" id="companySelect">
+                <select onChange={handleCompanyChange} name="companySelect" id="companySelect" value={company}>
                     <option value="All">All</option>
                     <option value="Marcos">Marcos</option>
                     <option value="Liddy">Liddy</option>
