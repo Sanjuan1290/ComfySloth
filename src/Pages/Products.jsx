@@ -10,14 +10,12 @@ export default function Products(){
         <>
             <HeaderNav navLocation={'Products'}/>
 
-            <section className="products_Section">
 
-                <main className="store-container">
-                        <FilteredSection />
+            <main className="products_section">
+                    <FilteredSection />
 
-                </main>
+            </main>
 
-            </section>
         </>
     )
 }

@@ -10,6 +10,8 @@
 @import url('./componentsStyle/headerNav.css');
 
 @import url('./componentsStyle/ProductsStyle/FilteredStyle.css');
+@import url('./componentsStyle/ProductsStyle/productsStyle.css');
+
 *{
     padding: 0;
     margin: 0;
