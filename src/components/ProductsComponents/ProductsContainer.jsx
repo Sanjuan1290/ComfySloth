@@ -51,7 +51,7 @@ export default function ProductsContainer(
                     <p>{product.details.slice(0, 150)}{product.details.length > 150 && '...'}</p>
 
                     
-                    <button>DETAILS</button>
+                    <NavLink to={product.SKU}>DETAILS</NavLink>
                 </div>
             </div>
         ))

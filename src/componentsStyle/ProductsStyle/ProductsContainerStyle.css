@@ -115,7 +115,7 @@
     font-size: 13px;
     letter-spacing: .5px;
 }
-.flexColumn-product-container > div > button{
+.flexColumn-product-container > div > a{
     background-color: rgb(170,123,95);
     color: rgb(234, 234, 234);
     border: none;
@@ -126,9 +126,10 @@
     letter-spacing: 1px;
     cursor: pointer;
     margin-top: 5px;
+    text-align: center;
     transition: background-color .4s ease, color .4s ease;
 }
-.flexColumn-product-container > div > button:hover{
+.flexColumn-product-container > div > a:hover{
     background-color: rgb(212, 143, 102);
     color: rgb(95, 95, 95);
 }
