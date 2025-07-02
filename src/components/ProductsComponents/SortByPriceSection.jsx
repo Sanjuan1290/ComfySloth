@@ -1,9 +1,12 @@
 import gridIcon from '../../assets/gridIcon.png'
 import flexColumnIcon from '../../assets/flexColumnIcon.png'
-import { useEffect } from 'react'
 
 
-export default function SortByPriceSection({ productNumberFound}){
+export default function SortByPriceSection({ productNumberFound, setSortBy }){
+
+    function handleSortPriceSelectChange(e){
+        setSortBy(e.target.value);
+    }
 
     return(
         <section className="sortByPrice_Section">
@@ -20,7 +23,7 @@ export default function SortByPriceSection({ productNumberFound}){
             <div className="priceSorter">
                 <p>Sort By</p>
 
-                <select name="sortPriceSelect" id="sortPriceSelect">
+                <select onChange={handleSortPriceSelectChange} name="sortPriceSelect" id="sortPriceSelect">
                     <option value="price-asc">Price (Lowest)</option>
                     <option value="price-desc">Price (highest)</option>
                     <option value="name-asc">Name (A-Z)</option>

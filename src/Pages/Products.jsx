@@ -25,6 +25,8 @@ export default function Products(){
 
     const [productNumberFound, setProductNumberFound] = useState(null)
 
+    const [sortBy, setSortBy] = useState('price-asc')
+
     return(
         <>
             <HeaderNav navLocation={'Products'}/>
@@ -41,7 +43,8 @@ export default function Products(){
 
                     <section>
                         <SortByPriceSection
-                            productNumberFound={productNumberFound} />                        
+                            productNumberFound={productNumberFound} 
+                            setSortBy={setSortBy}/>                        
                         <ProductsContainer 
                             products={products} 
                             category={category}
@@ -50,7 +53,8 @@ export default function Products(){
                             color={color}
                             priceRange={priceRange}
                             shipping={shipping}
-                            setProductNumberFound={setProductNumberFound}/>
+                            setProductNumberFound={setProductNumberFound}
+                            sortBy={sortBy}/>
                     </section>
             </main>
 

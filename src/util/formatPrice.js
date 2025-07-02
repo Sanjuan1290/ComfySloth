@@ -1,5 +1,5 @@
 
-export function formatPrice(priceCents){
+export default function formatPrice(priceCents){
 
     const price = Number((priceCents / 100).toFixed(2))
 

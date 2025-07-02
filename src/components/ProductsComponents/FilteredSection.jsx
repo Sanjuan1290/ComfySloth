@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom"
-import { formatPrice } from '../../util/formatPrice'
+import formatPrice from '../../util/formatPrice'
 import { useEffect, useRef, useState } from "react"
 
 export default function FilteredSection(
