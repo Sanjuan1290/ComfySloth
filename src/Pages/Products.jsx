@@ -47,7 +47,7 @@ export default function Products(){
                         <SortByPriceSection
                             productNumberFound={productNumberFound} 
                             setSortBy={setSortBy}
-                            setDisplayType={setDisplayType}/>                        
+                            displayType={displayType} setDisplayType={setDisplayType}/>                        
                         <ProductsContainer 
                             products={products} 
                             category={category}

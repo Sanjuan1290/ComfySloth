@@ -12,26 +12,18 @@
     display: flex;
     gap: 5px;
 } 
-.gridIcon{
+
+.sortByPrice_Section > .icons > img{
     width: 24px;
+    height: 24px;
     cursor: pointer;
     opacity: 1;
     transition: opacity .3s ease;
+    object-fit: contain;
 }
-.flexColumnIcon{
-    width: 28px;
-    cursor: pointer;
-    opacity: 1;
-    transition: opacity .3s ease;
-}
-
-.gridIcon:hover{
+.sortByPrice_Section > .icons > img:hover{
     opacity: .6;
 }
-.flexColumnIcon:hover{
-    opacity: .6;
-}
-
 
 .sortByPrice_Section > .line{
     min-height: 1px;
