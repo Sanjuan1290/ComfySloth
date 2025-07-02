@@ -2,18 +2,22 @@ import gridIcon from '../../assets/gridIcon.png'
 import flexColumnIcon from '../../assets/flexColumnIcon.png'
 
 
-export default function SortByPriceSection({ productNumberFound, setSortBy }){
+export default function SortByPriceSection({ productNumberFound, setSortBy, setDisplayType }){
 
     function handleSortPriceSelectChange(e){
         setSortBy(e.target.value);
+    }
+
+    function setDisplay(value){
+        setDisplayType(value)
     }
 
     return(
         <section className="sortByPrice_Section">
             
             <div className='icons'>
-                <img src={gridIcon} alt="gridIcon" className="gridIcon" />
-                <img src={flexColumnIcon} alt="flexColumnIcon" className="flexColumnIcon" />
+                <img onClick={()=>{setDisplay('gridDisplay')}} src={gridIcon} alt="gridIcon" className="gridIcon" value={`gridDisplay`}/>
+                <img onClick={()=>{setDisplay('flexColumnDisplay')}} src={flexColumnIcon} alt="flexColumnIcon" className="flexColumnIcon" value={`flexColumnDisplay`}/>
             </div>
 
             <p>{productNumberFound} products found</p>

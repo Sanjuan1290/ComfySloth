@@ -27,6 +27,8 @@ export default function Products(){
 
     const [sortBy, setSortBy] = useState('price-asc')
 
+    const [displayType, setDisplayType] = useState('gridDisplay') //gridDisplay or flexColumnDisplay
+
     return(
         <>
             <HeaderNav navLocation={'Products'}/>
@@ -44,7 +46,8 @@ export default function Products(){
                     <section>
                         <SortByPriceSection
                             productNumberFound={productNumberFound} 
-                            setSortBy={setSortBy}/>                        
+                            setSortBy={setSortBy}
+                            setDisplayType={setDisplayType}/>                        
                         <ProductsContainer 
                             products={products} 
                             category={category}
@@ -54,7 +57,8 @@ export default function Products(){
                             priceRange={priceRange}
                             shipping={shipping}
                             setProductNumberFound={setProductNumberFound}
-                            sortBy={sortBy}/>
+                            sortBy={sortBy}
+                            displayType={displayType}/>
                     </section>
             </main>
 
