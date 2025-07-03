@@ -1,0 +1,129 @@
+
+.login_section{
+    display: flex;
+    width: fit-content;
+
+    margin: 100px auto;
+
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.374);
+
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: antiquewhite;
+}
+
+.login_section > .signIn_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+    padding: 40px 30px;
+    background-color: white;
+}
+
+.login_section > .signIn_form > h1{
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.215) ;
+    font-size: 26px;
+}
+
+.login_section > .signIn_form > p {
+    color: rgb(70, 70, 70);
+    font-size: 13px;
+}
+
+.login_section > .signIn_form > p:nth-of-type(1){
+    margin-bottom: -5px;
+}
+.login_section > .signIn_form > p:nth-of-type(2){
+    font-size: 15px;
+    cursor: pointer;
+}
+.login_section > .signIn_form > p:nth-of-type(2):hover{
+    color: rgb(15, 15, 15);
+}
+
+
+.login_section > .signIn_form > div{
+    display: flex;
+    gap: 10px;
+}
+.login_section > .signIn_form > div > img{
+    width: 20px;
+    cursor: pointer;
+}
+
+
+.login_section > .signIn_form > input{
+    border: 1px solid transparent;
+    outline: none;
+
+    border-radius: 5px;
+    padding: 10px 15px;
+    width: 250px;
+    background-color: rgb(242, 242, 242);
+}
+.login_section > .signIn_form > input:focus{
+    border: 1px solid rgb(231, 148, 84);
+}
+
+.login_section > .signIn_form > #signinBtn{
+    border-radius: 20px;
+    padding: 8px 30px;
+    margin-top: 20px;
+    font-size: 15px;
+    background-color: rgb(207, 157, 132);
+    color: rgb(57, 57, 57);
+    border: 1px solid black;
+}
+.login_section > .signIn_form > #signinBtn:hover{
+    border: 1px solid white;
+
+    color: white;
+    cursor: pointer;
+    transition: background-color .4s ease, 
+    color .4s ease,
+    border .4s ease;
+}
+
+
+
+.login_section > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0px 40px;
+    gap: 10px;
+    color: white;
+    background-color: rgb(171,122,97);
+}
+
+.login_section > section > h1{
+    font-size: 26px;
+}
+.login_section > section > p{
+    width: 300px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.login_section > section > a{
+    border: 1px solid white;
+    border-radius: 20px;
+    padding: 8px 30px;
+    margin-top: 20px;
+    font-size: 15px;
+    color: white;
+    cursor: pointer;
+    transition: background-color .4s ease, 
+    color .4s ease,
+    border .4s ease;
+}
+.login_section > section > a:hover{
+    background-color: rgb(207, 157, 132);
+    color: rgb(57, 57, 57);
+    border: 1px solid black;
+}

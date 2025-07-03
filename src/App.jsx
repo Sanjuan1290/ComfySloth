@@ -9,6 +9,7 @@ import HomeLayout from './ComfyLayout'
 import Home from './Pages/Home'
 import About from './Pages/About'
 import Products from './Pages/Products'
+import Login from './Pages/Login'
 
 import { loader as ProductsLoader } from './Pages/Products'
 
@@ -19,6 +20,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path='/about' element={<About />}/>
             <Route path='/products' element={<Products />} loader={ProductsLoader}/>
+            <Route path='/login' element={<Login />} />
         </Route>
     ))
     

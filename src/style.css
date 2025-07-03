@@ -14,6 +14,9 @@
 @import url('./componentsStyle/ProductsStyle/SortByPriceSectionStyle.css');
 @import url('./componentsStyle/ProductsStyle/ProductsContainerStyle.css');
 
+@import url('./componentsStyle/loginStyle.css');
+
+
 *{
     padding: 0;
     margin: 0;
