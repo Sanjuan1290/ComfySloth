@@ -21,14 +21,16 @@ export default function Login(){
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: { email, password }
+                body: JSON.stringify({ email, password })
             })
 
             const result = await res.json()
 
-            if(!result.ok){
+            if(!res.ok){
                 console.log('login failed!');
+                return null
             }
+            console.log('Login successfully', result);
 
         } catch (error) {
             console.log(error);
@@ -49,7 +51,7 @@ export default function Login(){
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: { name, email, password }
+                body: JSON.stringify({ name, email, password })
             })
 
             const result = await res.json()
@@ -58,6 +60,7 @@ export default function Login(){
                 console.error(result.error)
                 return
             }
+            console.log('signup successfully!', result);
         }catch(err){
             console.log(err);
         }
@@ -124,7 +127,7 @@ export default function Login(){
 
     return(
         <section className={`${formType}`}>
-                <form onSubmit={formType === 'signin_section' ? handleSignIn : handleSignUp}>
+                <form key={formType} onSubmit={formType === 'signin_section' ? handleSignIn : handleSignUp}>
                     {formType === 'signin_section' ? signInForm() : signUpForm()}
                 </form>
 
