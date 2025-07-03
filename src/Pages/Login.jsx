@@ -3,11 +3,66 @@ import facebookIcon from '../assets/loginPageIcons/facebookIcon.png'
 import googleIcon from '../assets/loginPageIcons/googleIcon.png'
 import linkedinIcon from '../assets/loginPageIcons/linkedinIcon.png'
 
-import { NavLink } from 'react-router-dom'
 
 export default function Login(){
 
     const [formType, setFormType] = useState('signin_section')
+
+    async function handleSignIn(e){
+        e.preventDefault()
+
+        const formData = new FormData(e.target)
+        const email = formData.get('email')
+        const password = formData.get('password')
+
+        try {
+            const res = await fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/signin', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: { email, password }
+            })
+
+            const result = await res.json()
+
+            if(!result.ok){
+                console.log('login failed!');
+            }
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    async function handleSignUp(e){
+        e.preventDefault()
+
+        const formData = new FormData(e.target)
+        const name = formData.get('name')
+        const email = formData.get('email')
+        const password = formData.get('password')
+
+        try{
+            const res = await fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: { name, email, password }
+            })
+
+            const result = await res.json()
+
+            if(!res.ok){
+                console.error(result.error)
+                return
+            }
+        }catch(err){
+            console.log(err);
+        }
+    }
+
 
     const signInForm = () => (
         <>
@@ -29,14 +84,6 @@ export default function Login(){
             <button id='signinBtn'>SIGN IN</button>
         </>
     )
-    const signInSection = () => (
-        <>
-            <h1>Good Day!</h1>
-            <p>Enter your personal details and start ordering in ComfyCloth!</p>
-            <button onClick={() => {setFormType('signup_section')}}>SIGN UP</button>
-        </>
-    )
-
 
     const signUpForm = () => (
         <>
@@ -57,6 +104,14 @@ export default function Login(){
             <button id='signinBtn'>SIGN UP</button>
         </>
     )
+
+    const signInSection = () => (
+    <>
+        <h1>Good Day!</h1>
+        <p>Enter your personal details and start ordering in ComfyCloth!</p>
+        <button onClick={() => {setFormType('signup_section')}}>SIGN UP</button>
+    </>
+    )
     const signUpSection = () => (
         <>
             <h1>Welcome Back!</h1>
@@ -69,7 +124,7 @@ export default function Login(){
 
     return(
         <section className={`${formType}`}>
-                <form>
+                <form onSubmit={formType === 'signin_section' ? handleSignIn : handleSignUp}>
                     {formType === 'signin_section' ? signInForm() : signUpForm()}
                 </form>
 
