@@ -1,5 +1,5 @@
 import { defer, useLoaderData, Await, NavLink } from "react-router-dom"
-import { Suspense } from "react"
+import { Suspense, useState } from "react"
 import formatPrice from '../util/formatPrice'
 import HeaderNav from "../components/HeaderNav"
 
@@ -11,10 +11,12 @@ export async function loader({params}){
 export default function Product(){
 
     const { product } = useLoaderData()
+    const [featImage, setFeatImage] = useState('')
+    const [quantity, setQuantity] = useState(1)
 
     return(
         <>
-        
+
 
                 <Suspense fallback={<h1>Product is loading...</h1>}>
                     <Await resolve={product}>
@@ -28,12 +30,17 @@ export default function Product(){
 
                                     <div>
                                         <div className="img-container">
-                                            <img src={`https://comfysloth-server.onrender.com/${data.images[0]}`} alt="image 1" />
+                                            {
+                                                featImage ? <img src={featImage} alt="image 1" />
+                                                : 
+                                                <img src={`https://comfysloth-server.onrender.com/${data.images[0]}`} alt="image 1" />
+
+                                            }
 
                                             <div className="flex-row">
                                                 {
                                                     data.images.map((image, index) => (
-                                                        <img key={index} src={`https://comfysloth-server.onrender.com/${image}`} alt={`image ${index + 1}`} />
+                                                        <img onClick={() => {setFeatImage(`https://comfysloth-server.onrender.com/${image}`)}} key={index} src={`https://comfysloth-server.onrender.com/${image}`} alt={`image ${index + 1}`} />
                                                     ))
                                                 }
                                             </div>
@@ -74,16 +81,16 @@ export default function Product(){
                                                         <div className="colors">
                                                             {
                                                                 data.colors.map(color => (
-                                                                    <div className={`${color} active`}></div>
+                                                                    <div key={color} className={`${color} active`}></div>
                                                                 ))
                                                             }
                                                         </div>
                                                     </div>
 
                                                     <div className="quantity-container">
-                                                        <button>-</button>
-                                                        <p>1</p>
-                                                        <button>+</button>
+                                                        <button onClick={()=>{setQuantity(prev => prev <= 1 ? prev : prev - 1)}}>-</button>
+                                                        <p>{quantity}</p>
+                                                        <button onClick={()=>{setQuantity(prev => prev + 1)}}>+</button>
                                                     </div>
 
                                                     <button className="addToCartBtn">ADD TO CART</button>
