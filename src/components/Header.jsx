@@ -7,7 +7,7 @@ import crossIcon from '../assets/crossIcon.png'
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Header({ isMobile, setIsMobile }){
+export default function Header({ isMobile, setIsMobile, cartQuantity }){
 
 const [showNav, setShowNav] = useState(false)
 const navRef = useRef()
@@ -44,7 +44,7 @@ const nav = (
 
                 <div>
                     <img src={cartIcon} alt="cart icon" />
-                    <p className='totalQuantity'>0</p>
+                    <p className='totalQuantity'>{cartQuantity}</p>
                 </div>
             </NavLink>
 
