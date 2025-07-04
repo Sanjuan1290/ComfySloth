@@ -13,6 +13,7 @@ import Product from './Pages/Product'
 import Login from './Pages/Login'
 
 import { loader as ProductsLoader } from './Pages/Products'
+import { loader as ProductLoader } from './Pages/Product'
 
 const App = () => {
 
@@ -21,7 +22,7 @@ const App = () => {
             <Route index element={<Home />} />
             <Route path='/about' element={<About />}/>
             <Route path='/products' element={<Products />} loader={ProductsLoader}/>
-            <Route path='/products/:id' element={<Product />}/>
+            <Route path='/products/:id' element={<Product />} loader={ProductLoader}/>
             <Route path='/login' element={<Login />} />
         </Route>
     ))

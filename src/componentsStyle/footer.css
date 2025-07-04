@@ -12,3 +12,9 @@ footer > p{
 footer > p > .comfySloth{
     color: rgb(171,122,73);
 }
+
+@media (max-width: 740px){
+    footer > p {
+        font-size: 14px;
+    }
+}
