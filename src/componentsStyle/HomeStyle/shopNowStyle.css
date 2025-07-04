@@ -4,6 +4,8 @@
     grid-template-columns: 1fr 1fr;
     min-height: calc(450px + 20px);
     height: fit-content;
+    max-width: 1350px;
+    margin: 0px auto;
 }
 
 .shopNow_Section > .left{
