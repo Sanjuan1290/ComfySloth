@@ -7,10 +7,12 @@ import crossIcon from '../assets/crossIcon.png'
 import { useState, useEffect, useRef } from 'react'
 import { NavLink } from 'react-router-dom'
 
-export default function Header({ isMobile, setIsMobile, cartQuantity }){
+export default function Header({ isMobile, setIsMobile, cartItems }){
 
 const [showNav, setShowNav] = useState(false)
 const navRef = useRef()
+
+const totalQuantity = cartItems.reduce((currentValue, item) => currentValue + item.quantity, 0)
 
 useEffect(()=>{
     const handleResize = () => {
@@ -44,7 +46,7 @@ const nav = (
 
                 <div>
                     <img src={cartIcon} alt="cart icon" />
-                    <p className='totalQuantity'>{cartQuantity}</p>
+                    <p className='totalQuantity'>{totalQuantity}</p>
                 </div>
             </NavLink>
 

@@ -1,8 +1,7 @@
 import { defer, useLoaderData, Await, NavLink, useOutletContext } from "react-router-dom"
-import { Suspense, useEffect, useState } from "react"
+import { Suspense, useState } from "react"
 import formatPrice from '../util/formatPrice'
 import HeaderNav from "../components/HeaderNav"
-import { addToCart, getCartQuantity } from "../util/cart"
 
 export async function loader({params}){
     const res = await fetch(`https://comfysloth-server.onrender.com/api/v1/products/${params.id}`)
@@ -16,12 +15,30 @@ export default function Product(){
     const [quantity, setQuantity] = useState(1)
     const [colorPicked, setColorPicked] = useState(null)
 
-    const { setCartQuantity } = useOutletContext()
+    const { setCartItems } = useOutletContext()
 
-    function handleAddToCartClick(item){
-        addToCart(item)   
-        setCartQuantity(getCartQuantity)
+    function handleAddToCartClick(item) {
+
+        setCartItems(prev => {
+            const existingIndex = prev.findIndex(
+            cartItem => cartItem.SKU === item.SKU && cartItem.color === item.color
+            );
+
+            if (existingIndex !== -1) {
+                // Item exists, update quantity
+                const updatedCart = [...prev];
+                updatedCart[existingIndex] = {
+                    ...updatedCart[existingIndex],
+                    quantity: updatedCart[existingIndex].quantity + item.quantity
+                };
+                return updatedCart;
+            } else {
+                // Add new item
+                return [...prev, item];
+            }
+        });
     }
+
 
     return(
         <>
