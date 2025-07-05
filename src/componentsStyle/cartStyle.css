@@ -26,7 +26,6 @@
 }
 
 .cart-column-labels > p:nth-of-type(1){
-    background-color: aquamarine;
     min-width: 350px;
 }
 
@@ -42,7 +41,6 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-items: center;
-    background-color: aqua;
     position: relative;
 }
 
@@ -50,7 +48,6 @@
     display: flex;
     gap: 15px;
     align-items: center;
-    background-color: antiquewhite;
     flex: 1;
     min-width: 350px;
 }
@@ -75,12 +72,27 @@
     color: rgb(96,124,179);
 }
 .cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .color{
-    background-color: red;
     height: 11px;
     width: 11px;
     display: inline-block;
     border-radius: 3px;
     margin-left: 5px;
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .green{
+    background-color: green;
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .red{
+    background-color: red;
+    
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .yellow{
+    background-color: yellow;
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .blue{
+    background-color: blue;
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .black{
+    background-color: black;
 }
 
 
@@ -123,6 +135,8 @@
 .cart-items-container > .item-container > .subtotal{
     flex: 1;
     text-align: center;
+    color: rgb(113,150,179);
+
 }
 
 
@@ -145,6 +159,117 @@
     width: 100%;
 }
 
+
+.cart_Section > .line{
+    background-color: rgba(0, 0, 0, 0.241);
+    width: 100%;
+    height: .5px;
+    margin: 40px 0px;
+}
+
+.cart_Section > .CartActions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: -10px;
+}
+.cart_Section > .CartActions > .backToProducts{
+    background-color: rgb(171,122,95);
+    color: rgb(244, 244, 244);
+    letter-spacing: 1.5px;
+    font-size: 14px;
+    padding: 5px 10px;
+    font-weight: 500;
+    transition: background-color .4s ease, color .4s ease;
+}
+.cart_Section > .CartActions > .clearCartBtn{
+    background-color: black;
+    color: white;
+    padding: 5px 10px;
+    letter-spacing: 1.5px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color .4s ease, color .4s ease;
+}
+.cart_Section > .CartActions > .backToProducts:hover{
+    background-color: rgb(219, 175, 152);
+    color: rgb(74, 74, 74);
+}
+.cart_Section > .CartActions > .clearCartBtn:hover{
+    background-color: rgb(173, 173, 173);
+    color: rgb(54, 54, 54);
+}
+
+.cart_Section > .cartSummary_Section{
+    display: flex;
+    flex-direction: column;
+    
+    align-items: end;
+}
+.cart_Section > .cartSummary_Section > div{
+    border: 1px solid rgba(128, 128, 128, 0.608);
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 50px;
+    width: 360px;
+}
+.cart_Section > .cartSummary_Section > div > div{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 14px;
+}
+
+
+.cart_Section > .cartSummary_Section > div > .price-label > p:nth-of-type(1){
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+.cart_Section > .cartSummary_Section > div > .price-value >  p:nth-of-type(1){
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.cart_Section > .cartSummary_Section > div > .price-label > p:nth-of-type(3){
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 22px;
+    margin-top: 40px;
+}
+.cart_Section > .cartSummary_Section > div > .price-value >  p:nth-of-type(3){
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 22px;
+    margin-top: 40px;
+}
+
+.cart_Section > .cartSummary_Section > div > .line{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.427);
+    height: .5px;
+    left: 30px;
+    right: 30px;
+    bottom: 80px;
+}
+
+.cart_Section > .cartSummary_Section > .loginBtn{
+    letter-spacing: 1.5px;
+    color: white;
+    background-color: rgb(171,122,95);
+    font-size: 14px;
+    font-weight: 600;
+    width: 360px;
+    padding: 8px 30px;
+    margin-top: 20px;
+    text-align: center;
+    transition: background-color .4s ease, color .4s ease;
+}
+.cart_Section > .cartSummary_Section > .loginBtn:hover{
+    color: rgb(83, 83, 83);
+    background-color: rgb(196, 156, 136);
+}
 
 @media (max-width: 950px) {
     .cart-items-container > .item-container > .item, .cart-column-labels > p:nth-of-type(1){

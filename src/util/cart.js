@@ -4,7 +4,7 @@ export function getCart(){
     return cart
 }
 
-function saveCart(){
+export function saveCart(){
     localStorage.setItem('comfySloth_Cart', JSON.stringify(cart))
 }
 

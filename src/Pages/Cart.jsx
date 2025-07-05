@@ -1,14 +1,21 @@
 import deleteIcon from '../assets/delete.png'
 import HeaderNav from '../components/HeaderNav'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo, use } from 'react'
 import { getCart } from '../util/cart'
 import formatPrice from '../util/formatPrice'
+import { NavLink } from 'react-router-dom'
 
 
 export default function Cart(){
 
-    const [isMobile, setIsMobile] = useState(window.innerWidth <= 650 )
-    const [quantity, setQuantity] = useState(0)
+    const [isMobile, setIsMobile] = useState(window.innerWidth <= 650)
+    const [cartItems, setCartItems] = useState([])
+
+    const subTotal = cartItems.reduce((total, item) => total + item.priceCents * item.quantity, 0)
+    const shippingFeeCents = 534
+    const orderTotal = subTotal + shippingFeeCents
+
+
 
     useEffect(()=>{
         const handleEvent = () => {
@@ -19,6 +26,29 @@ export default function Cart(){
 
         return () => window.removeEventListener('resize', handleEvent)
     }, [isMobile])
+
+    useEffect(()=>{
+        setCartItems(getCart())
+    }, [])
+
+    useEffect(()=>{
+        localStorage.setItem('comfySloth_Cart', JSON.stringify(cartItems))
+    }, [cartItems])
+
+    function incrementQuantity(index) {
+        const newCart = [...cartItems];
+        newCart[index].quantity += 1;
+        setCartItems(newCart);
+    }
+
+    function decrementQuantity(index) {
+        const newCart = [...cartItems];
+        if (newCart[index].quantity > 1) {
+            newCart[index].quantity -= 1;
+            setCartItems(newCart);
+        }
+    }
+
 
     return(
 
@@ -35,8 +65,8 @@ export default function Cart(){
                 }
 
                 {
-                    getCart().map((item, index) => {
-                        console.log(item);
+
+                    cartItems && cartItems.map((item, index) => {
                         return <div key={index} className='cart-items-container'>
                             <div className="item-container">
                                 
@@ -49,15 +79,15 @@ export default function Cart(){
                                     </div>
                                 </div>
 
-                                <p className="price">{formatPrice(item.price)}</p>
+                                <p className="price">{formatPrice(item.priceCents)}</p>
                                 
                                 <div className="quantity">
-                                    <button onClick={() => {setQuantity(prev => prev <= 1 ? prev : prev - 1)}}>—</button>
+                                    <button onClick={()=>{decrementQuantity(index)}}>—</button>
                                     <p>{item.quantity}</p>
-                                    <button onClick={() => {setQuantity(prev => prev + 1)}}>+</button>
+                                    <button onClick={()=>{incrementQuantity(index)}}>+</button>
                                 </div>
 
-                                <p className="subtotal">{formatPrice(item.price * item.quantity)}</p>
+                                <p className="subtotal">{formatPrice(item.priceCents * item.quantity)}</p>
 
                                 <button className='deleteBtn'><img src={deleteIcon} alt="delete btn" /></button>
                             </div>
@@ -65,6 +95,36 @@ export default function Cart(){
                         </div>
                     })
                 }
+
+                <div className="line"></div>
+
+                <div className="CartActions">
+                    <NavLink to='/products' className={'backToProducts'}>Continue Shopping</NavLink>
+                    <button className='clearCartBtn' onClick={()=>{setCartItems([])}}>Clear Shopping Cart</button>
+                </div>
+
+                <div className="cartSummary_Section">
+
+                    <div>
+                        <div className='price-label'>
+                            <p>Subtotal :</p>
+                            <p>Shipping Fee : </p>
+                            <p>Order Total : </p>
+                        </div>
+
+                        <div className='price-value'>
+                            <p>{formatPrice(subTotal)}</p>
+                            <p>{formatPrice(shippingFeeCents)}</p>
+                            <p>{formatPrice(orderTotal)}</p>
+                        </div>
+
+
+                        <div className='line'></div>
+                    </div>
+                   
+                    <NavLink to='/login' className='loginBtn'>LOGIN</NavLink>
+
+                </div>
 
             </section>
         
