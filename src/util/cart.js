@@ -1,6 +1,6 @@
 let cart = JSON.parse(localStorage.getItem('comfySloth_Cart')) || []
 
-function getCart(){
+export function getCart(){
     return cart
 }
 

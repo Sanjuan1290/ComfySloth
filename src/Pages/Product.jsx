@@ -113,7 +113,7 @@ export default function Product(){
                                                                     image: `https://comfysloth-server.onrender.com/${data.images[0]}`,
                                                                     name: data.name,
                                                                     color: !colorPicked ? data.colors[0] : colorPicked,
-                                                                    price: formatPrice(data.priceCents),
+                                                                    price: data.priceCents,
                                                                     quantity: quantity
                                                                 })
                                                             }} 

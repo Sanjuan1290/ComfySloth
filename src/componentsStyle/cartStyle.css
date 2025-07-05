@@ -2,14 +2,16 @@
 
 .cart_Section{
     max-width: 1200px;
-    padding: 70px 20px;
+    padding: 70px 60px;
     margin: 0px auto;
+    transition: padding .4s ease;
 }
 
 .cart-column-labels{
     position: relative;
-    display: flex;
-    justify-content: space-around;
+    display: grid;
+    text-align: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     letter-spacing: 1.5px;
     font-size: 14px;
     color: rgb(113,150,179);
@@ -21,4 +23,161 @@
     width: 100%;
     bottom: -25px;
     background-color: rgb(113,150,179);
+}
+
+.cart-column-labels > p:nth-of-type(1){
+    background-color: aquamarine;
+    min-width: 350px;
+}
+
+
+.cart-items-container{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+
+.cart-items-container > .item-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    background-color: aqua;
+    position: relative;
+}
+
+.cart-items-container > .item-container > .item{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    background-color: antiquewhite;
+    flex: 1;
+    min-width: 350px;
+}
+
+.cart-items-container > .item-container > .item > img{
+    width: 100px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.cart-items-container > .item-container > .item > div{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(1){
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2){
+    color: rgb(96,124,179);
+}
+.cart-items-container > .item-container > .item > div > p:nth-of-type(2) > .color{
+    background-color: red;
+    height: 11px;
+    width: 11px;
+    display: inline-block;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+
+.cart-items-container > .item-container > .price{
+    color: rgb(171,122,95);
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    flex: 1;
+    text-align: center;
+}
+
+
+.cart-items-container > .item-container > .quantity{
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+.cart-items-container > .item-container > .quantity > p{
+    font-size: 23px;
+    font-weight: 700;
+
+}
+.cart-items-container > .item-container > .quantity > button{
+    font-weight: 900;
+    line-height: 20px;
+    padding-bottom: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    
+}
+.cart-items-container > .item-container > .quantity > button:nth-of-type(2){
+    font-size: 25px;
+}
+
+
+.cart-items-container > .item-container > .subtotal{
+    flex: 1;
+    text-align: center;
+}
+
+
+.cart-items-container > .item-container > .deleteBtn {
+    width: 20px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+    transition: opacity .3s ease;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    
+}
+.cart-items-container > .item-container > .deleteBtn:hover{
+    opacity: .8;
+}
+.cart-items-container > .item-container > .deleteBtn > img{
+    width: 100%;
+}
+
+
+@media (max-width: 950px) {
+    .cart-items-container > .item-container > .item, .cart-column-labels > p:nth-of-type(1){
+        min-width: 280px;
+    }
+}
+@media (max-width: 740px) {
+    .cart_Section{
+        padding: 70px 20px;
+    }
+}
+@media (max-width: 650px) {
+    .cart_Section{
+        padding: 20px 20px;
+    }
+    .cart-items-container > .item-container > .item {
+        min-width: 250px;
+    }
+    .cart-items-container > .item-container > .item > img{
+        height: 70px;
+        width: 70px;
+    }
+    .cart-items-container > .item-container > .item > div{
+        font-size: 11px;
+        margin-top: -5px;
+    }
+    .cart-items-container > .item-container > .price{
+        position: absolute;
+        left: 85px;
+        top: 70%;
+        font-size: 11px;
+    }
+    .cart-items-container > .item-container > .subtotal{
+        display: none;
+    }
 }
