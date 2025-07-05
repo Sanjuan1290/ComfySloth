@@ -4,11 +4,9 @@
     display: flex;
     width: fit-content;
     min-height: 400px;
-    margin: 100px auto;
+    margin: 100px auto 200px auto;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.374);
-    overflow: hidden;
     border-radius: 10px;
-    background-color: antiquewhite;
 }
 
 .signin_section > form, 

@@ -10,6 +10,7 @@
     padding: 10px 50px 0 0;
     height: fit-content;
     max-width: fit-content;
+    margin-bottom: 100px;
 }
 .filter_Section  h3{
     letter-spacing: 1px;
@@ -188,5 +189,6 @@
 @media (max-width: 850px) {
     .filter_Section{
         position: relative;
+        margin-bottom: 20px;
     }
 }

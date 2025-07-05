@@ -272,7 +272,22 @@
 }
 
 .emptyCart {
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 50px;
+    height: 80vh;
+}
+.emptyCart > a{
+    background-color: rgb(171,122,95);
+    text-align: center;
+    padding: 5px 12px;
+    letter-spacing: 1px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    width: fit-content;
 }
 
 @media (max-width: 950px) {

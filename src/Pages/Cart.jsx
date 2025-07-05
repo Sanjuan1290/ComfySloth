@@ -42,6 +42,12 @@ export default function Cart(){
         }
     }
 
+    function deleteItemFromCart(index){
+        const remainingCart = cartItems.filter((_, i) => i !== index)
+
+        setCartItems(remainingCart)
+    }
+
 
     return(
 
@@ -86,7 +92,7 @@ export default function Cart(){
 
                                     <p className="subtotal">{formatPrice(item.priceCents * item.quantity)}</p>
 
-                                    <button className='deleteBtn'><img src={deleteIcon} alt="delete btn" /></button>
+                                    <button onClick={()=>{deleteItemFromCart(index)}} className='deleteBtn'><img src={deleteIcon} alt="delete btn" /></button>
                                 </div>
 
                             </div>
@@ -126,7 +132,7 @@ export default function Cart(){
                 </section> :
                     <div className='emptyCart'>
                         <h1>Your cart is empty</h1>
-                        <button>FILL IT</button>
+                        <NavLink to='/products'>FILL IT</NavLink>
                     </div>
             }
         </>

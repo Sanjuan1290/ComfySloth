@@ -33,6 +33,10 @@ a{
     text-decoration: none;
 }
 
+html{
+    position: relative
+}
 body{
-    height: fit-content;
+
+    min-height: fit-content;
 }
