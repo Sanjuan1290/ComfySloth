@@ -4,7 +4,7 @@
     flex-direction: column;
     max-width: 1200px;
     padding: 70px 60px;
-    margin: auto;
+    margin: auto auto 100px auto;
     transition: padding .4s ease;
     gap: 50px;
 }

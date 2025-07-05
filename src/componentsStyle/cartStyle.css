@@ -3,7 +3,7 @@
 .cart_Section{
     max-width: 1200px;
     padding: 70px 60px;
-    margin: 0px auto;
+    margin: 0px auto 100px auto;
     transition: padding .4s ease;
 }
 
