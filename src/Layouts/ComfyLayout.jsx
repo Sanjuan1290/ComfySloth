@@ -12,28 +12,58 @@ export default function Layout(){
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 990)
     const [cartItems, setCartItems] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [userId, setUserId] = useState(null)
 
     useEffect(()=>{
-        const result = JSON.parse(localStorage.getItem('isLoggedIn'))
-        setIsLoggedIn(result)
+        const result_IsLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'))
+        setIsLoggedIn(result_IsLoggedIn)
+
+        const result_userId = JSON.parse(localStorage.getItem('userId'))
+        setUserId(result_userId)
     }, [])
 
     useEffect(()=>{
         localStorage.setItem('isLoggedIn', isLoggedIn)
     }, [isLoggedIn])
 
+    useEffect(() => {
+        if(userId === null) 
+            
+        localStorage.setItem('userId', userId)
+    }, [userId])
+
 
     useEffect(()=>{// get cart values
         if(isLoggedIn){
+            fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/getCart',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({userId})
+            })
+            .then(response => response.json())
+            .then(data => setCartItems(data))
+            .catch(err => {console.log(err);})
 
-        }else setCartItems(getCart())
-    }, [])
+        }else setCartItems(getCart()) // cart if not LoggedIn
+    }, [isLoggedIn])
 
     useEffect(()=>{ // save cart
         if(isLoggedIn){
+            fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/saveCart',{
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({userId, cartItems})
+            })
+            .then(response => response.json())
+            .then(result => {console.log(result);})
+            .catch(err => {console.log(err);})
 
-        }else saveCart(cartItems)
-    }, [cartItems])
+        }else saveCart(cartItems) // cart if not LoggedIn
+    }, [cartItems, isLoggedIn])
 
     console.log(isLoggedIn);
 
@@ -48,7 +78,8 @@ export default function Layout(){
                 isMobile, 
                 setIsMobile,
                 cartItems, setCartItems,
-                isLoggedIn, setIsLoggedIn }}/>
+                isLoggedIn, setIsLoggedIn,
+                setUserId }}/>
             <Footer />
         </>
     )

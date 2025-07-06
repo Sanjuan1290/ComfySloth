@@ -9,7 +9,7 @@ export default function Login(){
 
     const [formType, setFormType] = useState('signin_section')
     const navigateTo = useNavigate()
-    const { setIsLoggedIn } = useOutletContext()
+    const { setIsLoggedIn, setUserId } = useOutletContext()
 
     async function handleSignIn(e){
         e.preventDefault()
@@ -37,6 +37,7 @@ export default function Login(){
             console.log(result);
 
             if(result.success){
+                setUserId(result._id)
                 setIsLoggedIn(result.success)
                 navigateTo('/cart')
             }
