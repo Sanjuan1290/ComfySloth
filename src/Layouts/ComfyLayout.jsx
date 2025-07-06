@@ -13,57 +13,76 @@ export default function Layout(){
     const [cartItems, setCartItems] = useState([])
     const [isLoggedIn, setIsLoggedIn] = useState(false)
     const [userId, setUserId] = useState(null)
+    const [cartInitialized, setCartInitialized] = useState(false)
 
-    useEffect(()=>{
-        const result_IsLoggedIn = JSON.parse(localStorage.getItem('isLoggedIn'))
+
+    useEffect(() => {
+        const rawLoggedIn = localStorage.getItem('isLoggedIn')
+        const rawUserId = localStorage.getItem('userId')
+
+        const result_IsLoggedIn = rawLoggedIn ? JSON.parse(rawLoggedIn) : false
+        const result_userId = rawUserId ? JSON.parse(rawUserId) : null
+
         setIsLoggedIn(result_IsLoggedIn)
-
-        const result_userId = JSON.parse(localStorage.getItem('userId'))
         setUserId(result_userId)
+
+        // Delay until both are ready
+        setCartInitialized(true)
     }, [])
+
+
 
     useEffect(()=>{
         localStorage.setItem('isLoggedIn', isLoggedIn)
     }, [isLoggedIn])
 
     useEffect(() => {
-        if(userId === null) 
-            
-        localStorage.setItem('userId', userId)
+        if (userId !== null) {
+            localStorage.setItem('userId', JSON.stringify(userId))
+        }
     }, [userId])
 
 
-    useEffect(()=>{// get cart values
-        if(isLoggedIn){
-            fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/getCart',{
+
+    useEffect(() => {
+        if (!cartInitialized) return
+
+        if (isLoggedIn && userId) {
+            fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/getCart', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({userId})
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId })
             })
-            .then(response => response.json())
-            .then(data => setCartItems(data))
-            .catch(err => {console.log(err);})
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success && Array.isArray(data.cart)) {
+                        setCartItems(data.cart)
+                    }
+                })
+                .catch(err => console.log(err))
+        } else {
+            setCartItems(getCart()) // guest cart
+        }
+    }, [cartInitialized, isLoggedIn, userId])
 
-        }else setCartItems(getCart()) // cart if not LoggedIn
-    }, [isLoggedIn])
 
-    useEffect(()=>{ // save cart
-        if(isLoggedIn){
-            fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/saveCart',{
+    useEffect(() => {
+        if (!cartInitialized) return
+
+        if (isLoggedIn && userId) {
+            fetch('https://comfysloth-server.onrender.com/api/v1/userAccounts/saveCart', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({userId, cartItems})
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ userId, cartItems })
             })
-            .then(response => response.json())
-            .then(result => {console.log(result);})
-            .catch(err => {console.log(err);})
+                .then(res => res.json())
+                .then(result => console.log(result))
+                .catch(err => console.log(err))
+        } else {
+            saveCart(cartItems)
+        }
+    }, [cartItems, isLoggedIn, userId, cartInitialized])
 
-        }else saveCart(cartItems) // cart if not LoggedIn
-    }, [cartItems, isLoggedIn])
 
     console.log(isLoggedIn);
 

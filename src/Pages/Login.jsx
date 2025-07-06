@@ -11,6 +11,7 @@ export default function Login(){
     const navigateTo = useNavigate()
     const { setIsLoggedIn, setUserId } = useOutletContext()
 
+
     async function handleSignIn(e){
         e.preventDefault()
 
@@ -37,7 +38,8 @@ export default function Login(){
             console.log(result);
 
             if(result.success){
-                setUserId(result._id)
+                setUserId(result.user._id)
+                localStorage.setItem('userId', JSON.stringify(result.user._id))
                 setIsLoggedIn(result.success)
                 navigateTo('/cart')
             }
@@ -90,7 +92,7 @@ export default function Login(){
             <p>or use your account</p>
 
             <input type="text" placeholder='Email' id='email' name='email'/>
-            <input type="text" placeholder='Password' id='password' name='password'/>
+            <input type="password" placeholder='Password' id='password' name='password'/>
 
             <p>Forgot your password?</p>
 
@@ -112,7 +114,7 @@ export default function Login(){
 
             <input type="text" placeholder='Name' id='name' name='name'/>
             <input type="text" placeholder='Email' id='email' name='email'/>
-            <input type="text" placeholder='Password' id='password' name='password'/>
+            <input type="password" placeholder='Password' id='password' name='password'/>
 
             <button id='signinBtn'>SIGN UP</button>
         </>
