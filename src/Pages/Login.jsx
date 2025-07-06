@@ -23,7 +23,7 @@ export default function Login(){
                 },
                 body: JSON.stringify({ email, password })
             })
-
+2
             const result = await res.json()
 
             if(!res.ok){
