@@ -5,12 +5,17 @@ import burgerMenu from '../assets/burgerMenu.ico'
 import crossIcon from '../assets/crossIcon.png'
 
 import { useState, useEffect, useRef } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
 
-export default function Header({ isMobile, setIsMobile, cartItems }){
+export default function Header({ isMobile, 
+                                setIsMobile, 
+                                cartItems, 
+                                isLoggedIn, 
+                                setIsLoggedIn }){
 
 const [showNav, setShowNav] = useState(false)
 const navRef = useRef()
+const navigateTo = useNavigate()
 
 const totalQuantity = cartItems.reduce((currentValue, item) => currentValue + item.quantity, 0)
 
@@ -32,6 +37,12 @@ function closeSideNav(){
     setShowNav(false)
 }
 
+function logout(){
+    localStorage.setItem('isLoggedIn', false)
+    setIsLoggedIn(false)
+    navigateTo('/products')
+}
+
 const nav = (
     <> 
         <ul>
@@ -50,13 +61,18 @@ const nav = (
                 </div>
             </NavLink>
 
-            <NavLink to='/login' className='login-btn'>
-                <p>Login</p>
+            {
+                isLoggedIn ? <button onClick={logout}>Logout</button> :
+                        <NavLink to='/login' className='login-btn'>
+                            <p>Login</p>
 
-                <div>
-                    <img src={loginIcon} alt="login icon"/>
-                </div>
-            </NavLink>
+                            <div>
+                                <img src={loginIcon} alt="login icon"/>
+                            </div>
+                        </NavLink>
+            }
+
+            
         </section>
     </>
 )

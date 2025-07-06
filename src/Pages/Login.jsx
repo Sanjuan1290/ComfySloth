@@ -2,11 +2,14 @@ import { useState } from 'react'
 import facebookIcon from '../assets/loginPageIcons/facebookIcon.png'
 import googleIcon from '../assets/loginPageIcons/googleIcon.png'
 import linkedinIcon from '../assets/loginPageIcons/linkedinIcon.png'
+import { useNavigate, useOutletContext } from 'react-router-dom'
 
 
 export default function Login(){
 
     const [formType, setFormType] = useState('signin_section')
+    const navigateTo = useNavigate()
+    const { setIsLoggedIn } = useOutletContext()
 
     async function handleSignIn(e){
         e.preventDefault()
@@ -30,7 +33,13 @@ export default function Login(){
                 console.log('login failed!');
                 return null
             }
-            console.log('Login successfully', result);
+
+            console.log(result);
+
+            if(result.success){
+                setIsLoggedIn(result.success)
+                navigateTo('/cart')
+            }
 
         } catch (error) {
             console.log(error);

@@ -11,22 +11,44 @@ export default function Layout(){
 
     const [isMobile, setIsMobile] = useState(window.innerWidth <= 990)
     const [cartItems, setCartItems] = useState([])
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
 
     useEffect(()=>{
-        setCartItems(getCart())
+        const result = JSON.parse(localStorage.getItem('isLoggedIn'))
+        setIsLoggedIn(result)
     }, [])
 
     useEffect(()=>{
-        saveCart(cartItems)
+        localStorage.setItem('isLoggedIn', isLoggedIn)
+    }, [isLoggedIn])
+
+
+    useEffect(()=>{// get cart values
+        if(isLoggedIn){
+
+        }else setCartItems(getCart())
+    }, [])
+
+    useEffect(()=>{ // save cart
+        if(isLoggedIn){
+
+        }else saveCart(cartItems)
     }, [cartItems])
+
+    console.log(isLoggedIn);
 
     return(
         <>
-            <Header isMobile={isMobile} setIsMobile={setIsMobile} cartItems={cartItems}/>
+            <Header isMobile={isMobile} 
+                setIsMobile={setIsMobile} 
+                cartItems={cartItems} 
+                isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+
             <Outlet context={{
                 isMobile, 
                 setIsMobile,
-                cartItems, setCartItems }}/>
+                cartItems, setCartItems,
+                isLoggedIn, setIsLoggedIn }}/>
             <Footer />
         </>
     )
